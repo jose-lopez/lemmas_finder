@@ -29,7 +29,7 @@ def get_lemma(token, browser):
 
     browser.get(url)  # navigate to URL
 
-    time.sleep(0.5)    # to retrieve full and stable rendered HTML content
+    # time.sleep(0.5)    # to retrieve full and stable rendered HTML content
 
     content = browser.page_source
 
@@ -61,6 +61,8 @@ if __name__ == '__main__':
     chrome_options.add_argument("--headless=new")
 
     browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+
+    browser.implicitly_wait(3)
 
     files = [str(x) for x in Path(corpus).glob("**/*.csv")]
 
