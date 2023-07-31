@@ -23,19 +23,19 @@ Created on 21 jul. 2023
 
 def get_lemma(token, browser):
 
-    url_base = "https://logeion.uchicago.edu/"
+    url_base = "https://logeion.uchicago.edu/morpho/"
 
     url = url_base + quote(token)
 
     browser.get(url)  # navigate to URL
 
-    time.sleep(0.5)    # to retrieve full and stable rendered HTML content
+    time.sleep(1)    # to retrieve full and stable rendered HTML content
 
     content = browser.page_source
 
     parser = BeautifulSoup(content, "html.parser")
 
-    tag = parser.find('h1', class_='ng-binding')
+    tag = parser.find('a', class_='ng-binding')
 
     lemma = tag.text
 
