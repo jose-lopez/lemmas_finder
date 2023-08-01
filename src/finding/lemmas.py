@@ -39,21 +39,19 @@ def get_lemma(token, browser):
 
     lemma = tag.text
 
-    return lemma
+    # print(type(lemma))
+
+    return lemma.strip()
 
 
 if __name__ == '__main__':
 
-    folders = ["processed"]  # Maybe, in the future, we need other folders.
-
     root = "./text/"
     corpus = root + "corpus"
-    processed_root = root + "processed/"
+    processed_path = root + "processed/"
 
-    for folder in folders:
-        _path = root + folder
-        if not path.exists(_path):
-            os.mkdir(_path)
+    if not path.exists(processed_path):
+        os.mkdir(processed_path)
 
     processed_files = 0
 
@@ -61,8 +59,6 @@ if __name__ == '__main__':
     chrome_options.add_argument("--headless=new")
 
     browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
-
-    # browser.implicitly_wait(3)
 
     files = [str(x) for x in Path(corpus).glob("**/*.csv")]
 
@@ -72,7 +68,7 @@ if __name__ == '__main__':
 
         processed_files += 1
 
-        processed_file = processed_root + file_name
+        processed_file = processed_path + file_name
 
         df = pd.read_csv(file)
 
@@ -84,11 +80,11 @@ if __name__ == '__main__':
 
                 lemma = get_lemma(df.loc[x, "token"], browser)
 
-                print(f'token = {df.loc[x, "token"]}   lemma = {lemma}' + "\n")
+                # print(f'token = {df.loc[x, "token"]}   lemma = {lemma}' + "\n")
 
-                if lemma is not nan:
+                if not lemma.startswith("Search corpus for this form only"):
 
-                    df.loc[x, "lemma"] = lemma.strip()
+                    df.loc[x, "lemma"] = lemma
 
                 else:
 
