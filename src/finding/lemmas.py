@@ -80,8 +80,6 @@ if __name__ == '__main__':
 
                 lemma = get_lemma(df.loc[x, "token"], browser)
 
-                # print(f'token = {df.loc[x, "token"]}   lemma = {lemma}' + "\n")
-
                 if not lemma.startswith("Search corpus for this form only"):
 
                     df.loc[x, "lemma"] = lemma
@@ -89,6 +87,8 @@ if __name__ == '__main__':
                 else:
 
                     df.loc[x, "lemma"] = nan
+
+                print(f'token = {df.loc[x, "token"]}   lemma = {df.loc[x, "lemma"]}' + "\n")
 
         df.to_csv(processed_file)
 
