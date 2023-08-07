@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 
-from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from urllib.parse import quote
 from os import path
 from pathlib import Path
 import os
 import pandas as pd
 from numpy.core.numeric import nan
-import time
+import re
 
 
 '''
@@ -34,7 +34,7 @@ def get_browser():
     return browser
 
 
-def get_lemma(token, browser):
+def get_lemma(file, line, token, browser, logs):
 
     url_base = "https://logeion.uchicago.edu/morpho/"
 
@@ -48,27 +48,81 @@ def get_lemma(token, browser):
 
     # print(condition_element)
 
-    if WebDriverWait(browser, 10).until(EC.text_to_be_present_in_element((By.TAG_NAME, "h3"), "Short Definition")):
+    try:
+
+        # Waiting for a totally deployed URL.
+
+        WebDriverWait(browser, 10).until(EC.text_to_be_present_in_element((By.TAG_NAME, "h3"), "Short Definition"))
+
+    except NoSuchElementException:
+
+        lemma = nan
+
+        logs.write(f'An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+
+    except TimeoutException:
+
+        lemma = nan
+
+        logs.write(f'An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
+
+    else:
 
         lemma = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
 
         # print(lemma)
 
-        if lemma.startswith("Search corpus for this form only"):
+        invalid_lemma = re.search("[^\u1F00-\u1FFF\u0370-\u03FF\]+", lemma)
+
+        if invalid_lemma:
 
             lemma = nan
+
+    finally:
 
         return lemma
 
 
+def check_errors(token: str, lemma: str):
+
+    error = None
+
+    invalid_token = re.search("[^\u1F00-\u1FFF\u0370-\u03FF\]+", token)
+
+    if lemma is not nan:
+
+        invalid_lemma = re.search("[^\u1F00-\u1FFF\u0370-\u03FF\]+", lemma)
+
+    else:
+
+        invalid_lemma = False
+
+    if invalid_token and not invalid_lemma:
+
+        error = 1
+
+    if not invalid_token and invalid_lemma:
+
+        error = 2
+
+    if invalid_token and invalid_lemma:
+
+        error = 3
+
+    return error
+
+
 if __name__ == '__main__':
+
+    folders = ['processed', 'errors', 'logs']
 
     root = "./text/"
     corpus = root + "corpus"
-    processed_path = root + "processed/"
 
-    if not path.exists(processed_path):
-        os.mkdir(processed_path)
+    for folder in folders:
+        _path = root + folder
+        if not path.exists(_path):
+            os.mkdir(_path)
 
     processed_files = 0
 
@@ -76,26 +130,63 @@ if __name__ == '__main__':
 
     files = [str(x) for x in Path(corpus).glob("**/*.csv")]
 
+    files_to_process = len(files)
+
+    errors_in_file = []
+
     for file in files:
 
-        file_name = file.split("/")[-1]
+        file_name = "/" + file.split("/")[-1]
 
         processed_files += 1
 
-        processed_file = processed_path + file_name
+        processed_file = root + folder[0] + file_name
 
-        df = pd.read_csv(file)
+        errors_file = root + folder[1] + file_name
+
+        logs_file = root + folder[2] + file_name
+
+        logs = open(
+            logs_file, 'w', encoding="utf8")
+
+        input_df = pd.read_csv(file)
 
         # print(df.to_string())
 
-        for x in df.index:
+        print(f'Getting lemmas for {file_name} file: {processed_files} | {files_to_process}')
 
-            if df.loc[x, "lemma"] is nan:
+        for x in input_df.index:
 
-                lemma = get_lemma(df.loc[x, "token"], browser)
+            token = input_df.loc[x, "token"]
 
-                df.loc[x, "lemma"] = lemma
+            lemma = input_df.loc[x, "lemma"]
 
-            print(f'token = {df.loc[x, "token"]}   lemma = {df.loc[x, "lemma"]}' + "\n")
+            error = check_errors(token, lemma)
 
-        df.to_csv(processed_file)
+            if not error:
+
+                lemma = get_lemma(browser, file, x, token, logs)
+
+                print(f'token = {input_df.loc[x, "token"]}   lemma = {input_df.loc[x, "lemma"]}' + "\n")
+
+                input_df.loc[x, "lemma"] = lemma
+
+            else:
+
+                errors_in_file.append([x, token, lemma, error])
+
+        input_df.to_csv(processed_file)
+
+        # Building the error's file, if there are any, for the actual file in process,
+
+        if len(errors_in_file):
+
+            print(f'Errors found in {file_name} file. A report in {errors_file}')
+
+            errors_df = pd.DataFrame(errors_in_file, columns=['line', 'token', 'lemma', 'error_type'])
+
+            errors_df.to_csv(errors_file)
+
+        logs.close()
+
+    print(f'..... done')
