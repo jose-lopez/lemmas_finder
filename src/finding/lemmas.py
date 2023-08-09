@@ -167,15 +167,15 @@ if __name__ == '__main__':
 
         input_df.to_csv(processed_file)
 
-        # Building the error's file, if there are any, for the actual file in process,
+        # Building the warnings' file, if there are any, for the actual file in process.
 
         if len(warnings_in_file) != 0:
 
             print(f'Errors found in {file} file. A report in {warnings_file}')
 
-            errors_df = pd.DataFrame(warnings_in_file, columns=['line', 'token', 'lemma', 'error_type'])
+            warnings_df = pd.DataFrame(warnings_in_file, columns=['line', 'token', 'lemma', 'error_type'])
 
-            errors_df.to_csv(warnings_file)
+            warnings_df.to_csv(warnings_file)
 
         logs.close()
 
