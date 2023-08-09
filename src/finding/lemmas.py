@@ -26,6 +26,8 @@ Created on 21 jul. 2023
 
 def install_browser():
 
+    print(f'Checking Google Chrome installation....' + "\n")
+
     with os.popen("google-chrome --version") as f:
         browser = f.readlines()
 
@@ -90,13 +92,25 @@ def get_lemma(browser, file, line, token, logs):
 
     else:
 
-        lemma = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
+        try:
 
-        invalid_lemma = re.search(r'[a-zA-Z0-9]+', lemma)
-
-        if invalid_lemma:
+            browser.find_element(By.XPATH, "//*[contains(text(), 'Could not find the search term')]")
 
             lemma = nan
+
+        except NoSuchElementException:
+
+            possible_lemma = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
+
+            invalid_lemma = re.search(r'[a-zA-Z0-9]+', possible_lemma)
+
+            if invalid_lemma:
+
+                lemma = nan
+
+            else:
+
+                lemma = possible_lemma
 
     finally:
 
