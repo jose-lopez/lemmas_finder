@@ -24,6 +24,29 @@ Created on 21 jul. 2023
 '''
 
 
+def install_browser():
+
+    with os.popen("google-chrome --version") as f:
+        browser = f.readlines()
+
+    if len(browser):
+
+        print(f'Google Chrome version: {browser[0]}' + "\n")
+
+    else:
+
+        print(f'... Installinng Google Chrome' + "\n")
+
+        try:
+
+            print(os.popen('wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb').read())
+            print(os.popen('apt install ./google-chrome-stable_current_amd64.deb').read())
+
+        except Exception as exc:
+
+            print(exc)
+
+
 def get_browser():
 
     chrome_options = webdriver.ChromeOptions()
@@ -80,7 +103,7 @@ def get_lemma(browser, file, line, token, logs):
         return lemma
 
 
-def check_warning(token: str, lemma: str):
+def check_warning(token, lemma):
 
     warning = None
 
@@ -111,6 +134,8 @@ def check_warning(token: str, lemma: str):
 
 if __name__ == '__main__':
 
+    install_browser()
+
     folders = ['processed', 'warnings', 'logs']
 
     root = "./text/"
@@ -135,13 +160,15 @@ if __name__ == '__main__':
 
         file_name = "/" + file.split("/")[-1]
 
+        file_root_name = file_name.split(".")[0]
+
         processed_files += 1
 
         processed_file = root + folders[0] + file_name
 
-        warnings_file = root + folders[1] + file_name
+        warnings_file = root + folders[1] + file_root_name + "_warnings" + ".csv"
 
-        logs_file = root + folders[2] + file_name
+        logs_file = root + folders[2] + file_root_name + "_logs" + ".csv"
 
         logs = open(
             logs_file, 'w', encoding="utf8")
@@ -176,7 +203,7 @@ if __name__ == '__main__':
 
         if len(warnings_in_file) != 0:
 
-            print(f'Errors found in {file} file. A report in {warnings_file}')
+            print(f'Warnings found for {file} file. A report in {warnings_file}')
 
             warnings_df = pd.DataFrame(warnings_in_file, columns=['line', 'token', 'lemma', 'error_type'])
 
