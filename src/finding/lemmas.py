@@ -34,19 +34,13 @@ def get_browser():
     return browser
 
 
-def get_lemma(file, line, token, browser, logs):
+def get_lemma(browser, file, line, token, logs):
 
     url_base = "https://logeion.uchicago.edu/morpho/"
 
     url = url_base + quote(token)
 
     browser.get(url)  # navigate to URL
-
-    # time.sleep(5)    # to retrieve full and stable rendered HTML content
-
-    # condition_element = browser.find_element(By.TAG_NAME, "h3").text
-
-    # print(condition_element)
 
     try:
 
@@ -70,9 +64,7 @@ def get_lemma(file, line, token, browser, logs):
 
         lemma = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
 
-        # print(lemma)
-
-        invalid_lemma = re.search("[^\u1F00-\u1FFF\u0370-\u03FF\]+", lemma)
+        invalid_lemma = re.search(r'[a-zA-Z0-9]+', lemma)
 
         if invalid_lemma:
 
@@ -83,38 +75,38 @@ def get_lemma(file, line, token, browser, logs):
         return lemma
 
 
-def check_errors(token: str, lemma: str):
+def check_warning(token: str, lemma: str):
 
-    error = None
+    warning = None
 
-    invalid_token = re.search("[^\u1F00-\u1FFF\u0370-\u03FF\]+", token)
+    invalid_token = re.search(r'[a-zA-Z0-9]+', token)
 
     if lemma is not nan:
 
-        invalid_lemma = re.search("[^\u1F00-\u1FFF\u0370-\u03FF\]+", lemma)
+        invalid_lemma = re.search(r'[a-zA-Z0-9]+', lemma)
 
     else:
 
-        invalid_lemma = False
+        invalid_lemma = None
 
     if invalid_token and not invalid_lemma:
 
-        error = 1
+        warning = 1
 
     if not invalid_token and invalid_lemma:
 
-        error = 2
+        warning = 2
 
     if invalid_token and invalid_lemma:
 
-        error = 3
+        warning = 3
 
-    return error
+    return warning
 
 
 if __name__ == '__main__':
 
-    folders = ['processed', 'errors', 'logs']
+    folders = ['processed', 'warnings', 'logs']
 
     root = "./text/"
     corpus = root + "corpus"
@@ -132,7 +124,7 @@ if __name__ == '__main__':
 
     files_to_process = len(files)
 
-    errors_in_file = []
+    warnings_in_file = []
 
     for file in files:
 
@@ -140,20 +132,18 @@ if __name__ == '__main__':
 
         processed_files += 1
 
-        processed_file = root + folder[0] + file_name
+        processed_file = root + folders[0] + file_name
 
-        errors_file = root + folder[1] + file_name
+        warnings_file = root + folders[1] + file_name
 
-        logs_file = root + folder[2] + file_name
+        logs_file = root + folders[2] + file_name
 
         logs = open(
             logs_file, 'w', encoding="utf8")
 
         input_df = pd.read_csv(file)
 
-        # print(df.to_string())
-
-        print(f'Getting lemmas for {file_name} file: {processed_files} | {files_to_process}')
+        print(f'Getting lemmas for {file} file: {processed_files} | {files_to_process}' + "\n")
 
         for x in input_df.index:
 
@@ -161,31 +151,31 @@ if __name__ == '__main__':
 
             lemma = input_df.loc[x, "lemma"]
 
-            error = check_errors(token, lemma)
+            warning = check_warning(token, lemma)
 
-            if not error:
+            if warning:
+
+                warnings_in_file.append([x, token, lemma, warning])
+
+            if lemma is nan:
 
                 lemma = get_lemma(browser, file, x, token, logs)
 
-                print(f'token = {input_df.loc[x, "token"]}   lemma = {input_df.loc[x, "lemma"]}' + "\n")
+                print(f'token = {token}   lemma = {lemma}' + "\n")
 
                 input_df.loc[x, "lemma"] = lemma
-
-            else:
-
-                errors_in_file.append([x, token, lemma, error])
 
         input_df.to_csv(processed_file)
 
         # Building the error's file, if there are any, for the actual file in process,
 
-        if len(errors_in_file):
+        if len(warnings_in_file) != 0:
 
-            print(f'Errors found in {file_name} file. A report in {errors_file}')
+            print(f'Errors found in {file} file. A report in {warnings_file}')
 
-            errors_df = pd.DataFrame(errors_in_file, columns=['line', 'token', 'lemma', 'error_type'])
+            errors_df = pd.DataFrame(warnings_in_file, columns=['line', 'token', 'lemma', 'error_type'])
 
-            errors_df.to_csv(errors_file)
+            errors_df.to_csv(warnings_file)
 
         logs.close()
 
