@@ -1,0 +1,2565 @@
+Checking Google Chrome installation....
+
+Google Chrome version: Google Chrome 115.0.5790.98 
+
+
+Getting lemmas for text/corpus/aeschylus_i.csv file: 1 | 1
+
+token = ἀρθέντʼ   lemma = ἀραρίσκω
+
+token = προστομίων   lemma = προστόμιον
+
+token = λεπτοψαμάθων   lemma = λεπτοψάμαθος
+
+token = Δίαν   lemma = Δῖος
+
+token = λιποῦσαι   lemma = λείπω
+
+token = ἐφʼ   lemma = ἐπί
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = ʼξʼονοταζόμεναι   lemma = nan
+
+token = κύδιστʼ   lemma = κύδιστος
+
+token = κῦμʼ   lemma = κῦμα
+
+token = βοὸς   lemma = βοῦς
+
+token = εὐχόμενον   lemma = εὔχομαι
+
+token = τίνʼ   lemma = τίνω
+
+token = ἀφικοίμεθα   lemma = ἀφικνέομαι
+
+token = τῆ   lemma = τῆ
+
+token = πόντονδʼ   lemma = πόντος
+
+token = τʼ   lemma = σύ
+
+token = τʼ   lemma = σύ
+
+token = τήνδʼ   lemma = ὅδε
+
+token = Χορός   lemma = χορός
+
+token = ὑπερ   lemma = nan
+
+token = τιμάορʼ   lemma = τιμωρός
+
+token = ἶνίν   lemma = ἶνις
+
+token = τʼ   lemma = σύ
+
+token = βοὸς   lemma = βοῦς
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = ὅντʼ   lemma = ὅστε
+
+token = Χορός   lemma = χορός
+
+token = τᾶς   lemma = ὁ
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = ἅτʼ   lemma = ἅτε
+
+token = παιδὸς   lemma = παῖς
+
+token = ὤλετο   lemma = ὄλλυμι
+
+token = δυσμάτορος   lemma = δυσμήτωρ
+
+token = Χορός   lemma = χορός
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = φιλόδυρ   lemma = nan
+
+token = τος   lemma = nan
+
+token = τὰν   lemma = ὁ
+
+token = ἀνθεμίζομαι   lemma = ἀνθεμίζομαι
+
+token = Χορός   lemma = χορός
+
+token = θεοὶ   lemma = θεός
+
+token = πέλοιτʼ   lemma = πέλω
+
+token = Χορός   lemma = χορός
+
+token = Χορός   lemma = χορός
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = Χορός   lemma = χορός
+
+token = ἥμενος   lemma = ἧμαι
+
+token = ἐφʼ   lemma = ἐπί
+
+token = Χορός   lemma = χορός
+
+token = ἰδέσθω   lemma = ὁράω
+
+token = πυθμὴν   lemma = πυθμήν
+
+token = μὸν   lemma = nan
+
+token = μεταγνούς   lemma = μεταγιγνώσκω
+
+token = Χορός   lemma = χορός
+
+token = θρεομένα   lemma = θρέομαι
+
+token = θρεομένη   lemma = θρέομαι
+
+token = με   lemma = ἐγώ
+
+token = Χορός   lemma = χορός
+
+token = Σιδονία   lemma = Σιδόνιος
+
+token = Χορός   lemma = χορός
+
+token = ἐπίδρομʼ   lemma = ἐπίδρομος
+
+token = κῦμʼ   lemma = κῦμα
+
+token = Χορός   lemma = χορός
+
+token = Χορός   lemma = χορός
+
+token = μʼ   lemma = ἐγώ
+
+token = μοι   lemma = ἐγώ
+
+token = Χορός   lemma = χορός
+
+token = Χορός   lemma = χορός
+
+token = μʼ   lemma = ἐγώ
+
+token = σέμνʼ   lemma = σεμνός
+
+token = Χορός   lemma = χορός
+
+token = Χορός   lemma = χορός
+
+token = Ζῆνα   lemma = Ζεύς
+
+token = Χορός   lemma = χορός
+
+token = Ζήν   lemma = Ζεύς
+
+token = Χορός   lemma = χορός
+
+token = τότʼ   lemma = τότε
+
+token = βοὸς   lemma = βοῦς
+
+token = παῖδʼ   lemma = παῖς
+
+token = ἀτιμάσας   lemma = ἀτιμάζω
+
+token = αὐ   lemma = nan
+
+token = τός   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = Ζήν   lemma = Ζεύς
+
+token = ἰῶ   lemma = ἰάομαι
+
+token = δε   lemma = nan
+
+token = τἄμʼ   lemma = ἐγώ
+
+token = δελτουμένας   lemma = δελτόομαι
+
+token = τʼ   lemma = σύ
+
+token = ἡμᾶς   lemma = ἡμεῖς
+
+token = πεπυσμένοι   lemma = πυνθάνομαι
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = τόνδʼ   lemma = ὅδε
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = ἱκετηρίας   lemma = ἱκετηρία
+
+token = ἁγάλματʼ   lemma = ἄγαλμα
+
+token = ζαχρεῖʼ   lemma = ζαχρεῖος
+
+token = ἀμείβεσθʼ   lemma = ἀμείβω
+
+token = τάσδʼ   lemma = ὅδε
+
+token = ἑπέσθω   lemma = ἕπομαι
+
+token = μηδʼ   lemma = μηδέ
+
+token = κάρτʼ   lemma = κάρτα
+
+token = ἴδοιτο   lemma = ὁράω
+
+token = θέλοιμʼ   lemma = ἐθέλω
+
+token = φυγάδʼ   lemma = φυγάς
+
+token = ἀπʼ   lemma = ἀπό
+
+token = τίνʼ   lemma = τίνω
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = τʼ   lemma = σύ
+
+token = ὅδʼ   lemma = ὅδε
+
+token = σέβεσθʼ   lemma = σέβομαι
+
+token = ἁγνὸς   lemma = ἁγνός
+
+token = γένοιτʼ   lemma = γίγνομαι
+
+token = τἀπλακήμαθʼ   lemma = ἀμπλάκημα
+
+token = τόνδε   lemma = ὅδε
+
+token = ὑμῖν   lemma = ὑμεῖς
+
+token = τόνδʼ   lemma = ὅδε
+
+token = Ἀργολὶς   lemma = Ἀργολίς
+
+token = ἐσθὴς   lemma = ἐσθής
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = πόλλʼ   lemma = πολύς
+
+token = ἔτʼ   lemma = ἔτης
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = σὲ   lemma = σός
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = λέγʼ   lemma = λέγω
+
+token = ἐμοί   lemma = ἐγώ
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = Πίνδου   lemma = Πίνδος
+
+token = χρανθεῖσʼ   lemma = χραίνω
+
+token = ποτʼ   lemma = ποτε
+
+token = ηὕρετʼ   lemma = εὑρίσκω
+
+token = τἀπʼ   lemma = ἀπό
+
+token = τʼ   lemma = σύ
+
+token = θʼ   lemma = σύ
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = μυθεῖσθʼ   lemma = μυθέομαι
+
+token = Λιβυστικαῖς   lemma = Λιβυστικός
+
+token = ἐμφερέστεραι   lemma = ἐμφερής
+
+token = τʼ   lemma = σύ
+
+token = ἀρσένων   lemma = ἄρσην
+
+token = τʼ   lemma = σύ
+
+token = παρʼ   lemma = παρά
+
+token = ἀστυγειτονουμένας   lemma = ἀστυγειτονέομαι
+
+token = τʼ   lemma = σύ
+
+token = γένεθλον   lemma = γένεθλον
+
+token = τʼ   lemma = σύ
+
+token = Ζῆνα   lemma = Ζεύς
+
+token = γʼ   lemma = γε
+
+token = θεός   lemma = θεός
+
+token = ἐπʼ   lemma = ἐπί
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = βοΐ   lemma = βοῦς
+
+token = νιν   lemma = νιν
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = ἐμοί   lemma = ἐγώ
+
+token = Μέμφιν   lemma = Μέμφις
+
+token = ἵκετο   lemma = ἱκνέομαι
+
+token = γʼ   lemma = γε
+
+token = Δῖος   lemma = Δῖος
+
+token = τίνʼ   lemma = τίνω
+
+token = ἔτʼ   lemma = ἔτης
+
+token = τοῦδʼ   lemma = ὅδε
+
+token = τοῦτό   lemma = οὗτος
+
+token = μοι   lemma = ἐγώ
+
+token = τοὔνομʼ   lemma = ὄνομα
+
+token = ἁμὸν   lemma = ἁμός
+
+token = μοι   lemma = ἐγώ
+
+token = τίς   lemma = τίς
+
+token = αἰόλʼ   lemma = αἰόλος
+
+token = τήνδʼ   lemma = ὅδε
+
+token = μεταπτοιοῦσαν   lemma = μεταπτοιέω
+
+token = τῶνδʼ   lemma = ὅδε
+
+token = λευκοστεφεῖς   lemma = λευκοστεφής
+
+token = γένωμαι   lemma = γίγνομαι
+
+token = ὠνοῖτο   lemma = ὠνέομαι
+
+token = κεκτημένους   lemma = κτάομαι
+
+token = γʼ   lemma = γε
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = παισὶν   lemma = παῖς
+
+token = γʼ   lemma = γε
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = γʼ   lemma = γε
+
+token = κοινωνὸς   lemma = κοινωνός
+
+token = ὧδʼ   lemma = ὧδε
+
+token = Χορός   lemma = χορός
+
+token = μου   lemma = ἐγώ
+
+token = με   lemma = ἐγώ
+
+token = τὰν   lemma = ὁ
+
+token = ἵνʼ   lemma = ἵνα
+
+token = μέμυ   lemma = nan
+
+token = κε   lemma = ἄν
+
+token = νεύονθʼ   lemma = νεύω
+
+token = τοῦτʼ   lemma = οὗτος
+
+token = μηδʼ   lemma = μηδέ
+
+token = γένηται   lemma = γίγνομαι
+
+token = Χορός   lemma = χορός
+
+token = ἴδοιτο   lemma = ὁράω
+
+token = σὺ   lemma = σύ
+
+token = ὀψιγόνου   lemma = ὀψίγονος
+
+token = αἰδόμενος   lemma = αἰδέομαι
+
+token = ἱεροδόκα   lemma = ἱεροδόκος
+
+token = λήματʼ   lemma = λῆμα
+
+token = ἀπʼ   lemma = ἀπό
+
+token = κάθησθε   lemma = κάθημαι
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = κραίνοιμʼ   lemma = κραίνω
+
+token = ὑπόσχεσιν   lemma = ὑπόσχεσις
+
+token = Χορός   lemma = χορός
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = τόδʼ   lemma = ὅδε
+
+token = μʼ   lemma = ἐγώ
+
+token = φρένας   lemma = φρήν
+
+token = Χορός   lemma = χορός
+
+token = σκοπὸν   lemma = σκοπός
+
+token = προσήμενοι   lemma = πρόσημαι
+
+token = σε   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = ποτʼ   lemma = ποτε
+
+token = ἀρσένων   lemma = ἄρσην
+
+token = ἑλόμενος   lemma = αἱρέω
+
+token = μʼ   lemma = ἐγώ
+
+token = Χορός   lemma = χορός
+
+token = μεταλ   lemma = nan
+
+token = γεῖς   lemma = nan
+
+token = μηδʼ   lemma = μηδέ
+
+token = αὐτοῖσί   lemma = αὐτός
+
+token = θʼ   lemma = σύ
+
+token = ἡμῖν   lemma = ἡμεῖς
+
+token = μήτʼ   lemma = μήτε
+
+token = ὧδʼ   lemma = ὧδε
+
+token = θεὸν   lemma = θεός
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = Χορός   lemma = χορός
+
+token = τὰν   lemma = ὁ
+
+token = τὰν   lemma = ὁ
+
+token = Χορός   lemma = χορός
+
+token = μʼ   lemma = ἐγώ
+
+token = ῥυσια   lemma = nan
+
+token = σθεῖσαν   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = τὰν   lemma = ὁ
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = παισὶ   lemma = παῖς
+
+token = ὁπότερʼ   lemma = ὁπότερος
+
+token = φράσαι   lemma = φράζω
+
+token = πᾶσʼ   lemma = πᾶς
+
+token = ἔστʼ   lemma = ἔστε
+
+token = ναυτικαῖσιν   lemma = ναυτικός
+
+token = μέγʼ   lemma = μέγας
+
+token = γένοιτʼ   lemma = γίγνομαι
+
+token = γένοιτο   lemma = γίγνομαι
+
+token = γένοιτο   lemma = γίγνομαι
+
+token = με   lemma = ἐγώ
+
+token = τάχʼ   lemma = τάχα
+
+token = τίνʼ   lemma = τίνω
+
+token = γηρυθεῖσʼ   lemma = γηρύω
+
+token = ἔσῃ   lemma = εἰμί
+
+token = πιστὸν   lemma = πιστόν
+
+token = τῷδʼ   lemma = ὅδε
+
+token = σοι   lemma = σύ
+
+token = αἰνιγματῶδες   lemma = αἰνιγματώδης
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = τάχιστʼ   lemma = ταχύς
+
+token = μάλʼ   lemma = μάλα
+
+token = τόδʼ   lemma = ὅδε
+
+token = ὑμῖν   lemma = ὑμεῖς
+
+token = μὴ   lemma = μή
+
+token = τόδʼ   lemma = ὅδε
+
+token = παισὶν   lemma = παῖς
+
+token = αἶψʼ   lemma = αἶψα
+
+token = ἐπʼ   lemma = ἐπί
+
+token = μηδʼ   lemma = μηδέ
+
+token = ἐμοῦ   lemma = ἐγώ
+
+token = ἥσσοσιν   lemma = ἥσσων
+
+token = ἡμῖν   lemma = ἡμεῖς
+
+token = τʼ   lemma = σύ
+
+token = διʼ   lemma = διά
+
+token = στείχοιτʼ   lemma = στείχω
+
+token = ἡγεῖσθε   lemma = ἡγέομαι
+
+token = χρεὼν   lemma = χρεών
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ἐμοί   lemma = nan
+
+token = κατʼ   lemma = κατά
+
+token = με   lemma = ἐγώ
+
+token = σʼ   lemma = σός
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = δρακόντων   lemma = δέρκομαι
+
+token = ἐχθίοσιν   lemma = ἐχθρός
+
+token = γʼ   lemma = γε
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = σὸν   lemma = σός
+
+token = θεοὺς   lemma = θεός
+
+token = λιταῖς   lemma = λιτή
+
+token = παραιτοῦ   lemma = παραιτέομαι
+
+token = σʼ   lemma = σός
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ἕποιτο   lemma = ἕπομαι
+
+token = Χορός   lemma = χορός
+
+token = τὰν   lemma = ὁ
+
+token = Χορός   lemma = χορός
+
+token = εὔφρονʼ   lemma = εὔφρων
+
+token = εὐχόμεθʼ   lemma = εὔχομαι
+
+token = τᾶσδʼ   lemma = ὅδε
+
+token = Χορός   lemma = χορός
+
+token = διατέμ   lemma = nan
+
+token = νουσα   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = Ἀσίδος   lemma = Ἀσίς
+
+token = διʼ   lemma = διά
+
+token = Κιλίκων   lemma = Κίλιξ
+
+token = Παμφύλων   lemma = Πάμφυλος
+
+token = διορνυμένα   lemma = διόρνυμαι
+
+token = τὰν   lemma = ὁ
+
+token = Χορός   lemma = χορός
+
+token = σινουμένα   lemma = σίνομαι
+
+token = μαινομένα   lemma = μαίνομαι
+
+token = ἀτί   lemma = nan
+
+token = μοις   lemma = nan
+
+token = κεντροδα   lemma = nan
+
+token = λήτισι   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = τὰν   lemma = ὁ
+
+token = τὰν   lemma = ὁ
+
+token = θέλ   lemma = nan
+
+token = ξας   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = διʼ   lemma = διά
+
+token = κρέων   lemma = κρέων
+
+token = ἀπο   lemma = nan
+
+token = γείνατο   lemma = γείνομαι
+
+token = παῖδʼ   lemma = παῖς
+
+token = Χορός   lemma = χορός
+
+token = Ἥ   lemma = ὁ
+
+token = ρας   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = τίνʼ   lemma = τίνω
+
+token = ἐπʼ   lemma = ἐπί
+
+token = φυτουργὸς   lemma = φυτουργός
+
+token = Χορός   lemma = χορός
+
+token = ὑπʼ   lemma = ὑπό
+
+token = τινος   lemma = τις
+
+token = ἡμένου   lemma = ἧμαι
+
+token = φίλτατʼ   lemma = φίλος
+
+token = ἐμοί   lemma = ἐγώ
+
+token = ἡμῖν   lemma = ἡμεῖς
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = με   lemma = ἐγώ
+
+token = ἡμᾶς   lemma = ἡμεῖς
+
+token = τʼ   lemma = σύ
+
+token = μήτʼ   lemma = μήτε
+
+token = μήτʼ   lemma = μήτε
+
+token = τινὰ   lemma = τις
+
+token = ἡμῶν   lemma = ἡμεῖς
+
+token = θʼ   lemma = σύ
+
+token = ἐπʼ   lemma = ἐπί
+
+token = ἐπʼ   lemma = ἐπί
+
+token = τέρμονʼ   lemma = τέρμων
+
+token = Χορός   lemma = χορός
+
+token = θεοὶ   lemma = θεός
+
+token = εὐ   lemma = nan
+
+token = κταῖα   lemma = nan
+
+token = Ἄπη   lemma = nan
+
+token = θερί   lemma = nan
+
+token = ζοντα   lemma = nan
+
+token = ἡμᾶς   lemma = ἡμεῖς
+
+token = τάνδʼ   lemma = ὅδε
+
+token = Χορός   lemma = χορός
+
+token = ἀρσένων   lemma = ἄρσην
+
+token = ἀτιμώ   lemma = nan
+
+token = σαντες   lemma = nan
+
+token = σκοπὸν   lemma = σκοπός
+
+token = ἐπʼ   lemma = ἐπί
+
+token = μιαί   lemma = nan
+
+token = νοντα   lemma = nan
+
+token = βω   lemma = nan
+
+token = μοῖς   lemma = nan
+
+token = θεοὺς   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = τοιγὰρ   lemma = τοιγάρ
+
+token = σθω   lemma = nan
+
+token = μηδʼ   lemma = μηδέ
+
+token = ρης   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = πρε   lemma = nan
+
+token = σβυτοδόκοι   lemma = nan
+
+token = γεμόν   lemma = nan
+
+token = των   lemma = nan
+
+token = Ζῆνα   lemma = Ζεύς
+
+token = εὐχόμεθʼ   lemma = εὔχομαι
+
+token = κῶν   lemma = Κῶς
+
+token = Χορός   lemma = χορός
+
+token = ἀνδροκμὴς   lemma = ἀνδροκμής
+
+token = ἀκίθαριν   lemma = ἀκίθαρις
+
+token = τʼ   lemma = σύ
+
+token = στω   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = τʼ   lemma = σύ
+
+token = τʼ   lemma = σύ
+
+token = φερέ   lemma = nan
+
+token = σθω   lemma = nan
+
+token = φιλοφόρμιγξ   lemma = φιλοφόρμιγξ
+
+token = Χορός   lemma = χορός
+
+token = τʼ   lemma = σύ
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = θεοὺς   lemma = θεός
+
+token = τόδʼ   lemma = ὅδε
+
+token = θεσμίοις   lemma = θέσμιος
+
+token = ὑμεῖς   lemma = ὑμεῖς
+
+token = τρέσητʼ   lemma = τρέω
+
+token = με   lemma = ἐγώ
+
+token = βλέπουσʼ   lemma = βλέπω
+
+token = θʼ   lemma = σύ
+
+token = ἡγεμὼν   lemma = ἡγεμών
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = πρᾶγμʼ   lemma = πρᾶγμα
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ξυνδίκους   lemma = σύνδικος
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = ἔσται   lemma = εἰμί
+
+token = νιν   lemma = νιν
+
+token = λαθέσθαι   lemma = λανθάνω
+
+token = τʼ   lemma = σύ
+
+token = θεοὺς   lemma = θεός
+
+token = μέσῳ   lemma = μέσος
+
+token = Χορός   lemma = χορός
+
+token = μʼ   lemma = ἐγώ
+
+token = μοι   lemma = ἐγώ
+
+token = τελεία   lemma = τέλειος
+
+token = σάφʼ   lemma = σαφής
+
+token = ἐγώ   lemma = ἐγώ
+
+token = Χορός   lemma = χορός
+
+token = μάργον   lemma = μάργος
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = βραχίονʼ   lemma = βραχίων
+
+token = Χορός   lemma = χορός
+
+token = μονωθεῖσʼ   lemma = μονόω
+
+token = οὐδέν   lemma = οὐδείς
+
+token = Χορός   lemma = χορός
+
+token = βω   lemma = nan
+
+token = ἡμῖν   lemma = ἡμεῖς
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = Χορός   lemma = χορός
+
+token = ἡμῶν   lemma = ἡμεῖς
+
+token = χεῖρʼ   lemma = χείρ
+
+token = Χορός   lemma = χορός
+
+token = μεμαργωμένοι   lemma = μαργόομαι
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = γένοιτʼ   lemma = γίγνομαι
+
+token = γέρονθʼ   lemma = γέρων
+
+token = Χορός   lemma = χορός
+
+token = Χορός   lemma = χορός
+
+token = μου   lemma = ἐγώ
+
+token = μʼ   lemma = ἐγώ
+
+token = βρόχου   lemma = βρόχος
+
+token = πρόπαρ   lemma = πρόπαρ
+
+token = θανούσας   lemma = ἀποθνῄσκω
+
+token = Ἀίδας   lemma = ᾍδης
+
+token = Χορός   lemma = χορός
+
+token = μοι   lemma = ἐγώ
+
+token = γένοιτʼ   lemma = γίγνομαι
+
+token = ἀπρόσ   lemma = nan
+
+token = δεικτος   lemma = nan
+
+token = μοι   lemma = ἐγώ
+
+token = δαΐκτορος   lemma = δαϊκτήρ
+
+token = Χορός   lemma = χορός
+
+token = κυσὶν   lemma = κύων
+
+token = ἀναίνομαι   lemma = ἀναίνομαι
+
+token = ἐλευθεροῦ   lemma = ἐλευθερόω
+
+token = ται   lemma = nan
+
+token = τας   lemma = nan
+
+token = τίνʼ   lemma = τίνω
+
+token = Χορός   lemma = χορός
+
+token = μοι   lemma = ἐγώ
+
+token = τʼ   lemma = σύ
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = με   lemma = ἐγώ
+
+token = σὸν   lemma = σός
+
+token = μάρπτις   lemma = μάρπτις
+
+token = μάρπτι   lemma = μάρπτις
+
+token = ἰόφ   lemma = nan
+
+token = ὀμ   lemma = nan
+
+token = κάκκας   lemma = κάκκη
+
+token = δυϊαν   lemma = nan
+
+token = χλιδᾷ   lemma = χλιδάω
+
+token = ναῒ   lemma = ναῦς
+
+token = ριν   lemma = nan
+
+token = ὀλύμεναι   lemma = nan
+
+token = ὀλόμενʼ   lemma = ὄλλυμι
+
+token = ἐπαμίδα   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = αἵμονες   lemma = αἵμων
+
+token = ἐπάμιδα   lemma = nan
+
+token = ησυδουπιάπιτα   lemma = nan
+
+token = Κῆρυξ   lemma = κῆρυξ
+
+token = τʼ   lemma = σύ
+
+token = δόρυ   lemma = δόρυ
+
+token = Χορός   lemma = χορός
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = Κῆρυξ   lemma = κῆρυξ
+
+token = σὺ   lemma = σύ
+
+token = βαθυμιτροκακὰ   lemma = nan
+
+token = παθῶν   lemma = πάθη
+
+token = ὀλόμεναι   lemma = ὄλλυμι
+
+token = Χορός   lemma = χορός
+
+token = διʼ   lemma = διά
+
+token = ἀλαθεὶς   lemma = ἀλάομαι
+
+token = Κῆρυχ   lemma = nan
+
+token = ὑπερθορῇ   lemma = ὑπερθρῴσκω
+
+token = Χορός   lemma = χορός
+
+token = σʼ   lemma = σός
+
+token = σʼ   lemma = σός
+
+token = ἀποτρέ   lemma = nan
+
+token = ψειεν   lemma = nan
+
+token = Κῆρυξ   lemma = κῆρυξ
+
+token = οὐδάμʼ   lemma = οὐδαμά
+
+token = Χορός   lemma = χορός
+
+token = μʼ   lemma = ἐγώ
+
+token = ἄραχνος   lemma = ἄραχνος
+
+token = φοβερὸν   lemma = φοβερός
+
+token = Κῆρυξ   lemma = κῆρυξ
+
+token = μʼ   lemma = ἐγώ
+
+token = Χορός   lemma = χορός
+
+token = ὄφις   lemma = ὄφις
+
+token = μέ   lemma = ἐγώ
+
+token = δακοῦσʼ   lemma = δάκνω
+
+token = φοβερὸν   lemma = φοβερός
+
+token = ἄσεπτʼ   lemma = ἄσεπτος
+
+token = θαρσεῖτʼ   lemma = θαρσέω
+
+token = ἐρεῖτʼ   lemma = λέγω
+
+token = ἀποσπάσας   lemma = ἀποσπάω
+
+token = τήνδʼ   lemma = ὅδε
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = πόλλʼ   lemma = πολύς
+
+token = ἐμοὶ   lemma = ἐγώ
+
+token = τἄμʼ   lemma = ἐγώ
+
+token = θεοὺς   lemma = θεός
+
+token = οὐδέν   lemma = οὐδείς
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ἄγοιμʼ   lemma = ἄγω
+
+token = λέγοιμʼ   lemma = λέγω
+
+token = παισὶν   lemma = παῖς
+
+token = τοῦτʼ   lemma = οὗτος
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = τίνος   lemma = τίς
+
+token = τʼ   lemma = σύ
+
+token = σοι   lemma = σύ
+
+token = τοὔνομʼ   lemma = ὄνομα
+
+token = σύ   lemma = σύ
+
+token = τʼ   lemma = σύ
+
+token = ξυνέμποροι   lemma = συνέμπορος
+
+token = κατʼ   lemma = κατά
+
+token = μία   lemma = εἷς
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = κατεσφραγισμένα   lemma = κατασφραγίζω
+
+token = τάχιστʼ   lemma = ταχύς
+
+token = ἄρσεσιν   lemma = ἄρσην
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = ἄρσενάς   lemma = ἄρσην
+
+token = ὑμεῖς   lemma = ὑμεῖς
+
+token = δώματʼ   lemma = δῶμα
+
+token = δεδωμάτωμαι   lemma = δωματόομαι
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = τʼ   lemma = σύ
+
+token = ἐφʼ   lemma = ἐπί
+
+token = θʼ   lemma = σύ
+
+token = μου   lemma = ἐγώ
+
+token = ἐμοὶ   lemma = ἐγώ
+
+token = ʼξ   lemma = ἐκ
+
+token = ἀείζων   lemma = ἀείζωος
+
+token = ταῦθʼ   lemma = οὗτος
+
+token = ἀγνῶθʼ   lemma = ἀγνώς
+
+token = τʼ   lemma = σύ
+
+token = ὑμᾶς   lemma = ὑμεῖς
+
+token = ἐμέ   lemma = ἐγώ
+
+token = τήνδʼ   lemma = ὅδε
+
+token = καλωρα   lemma = nan
+
+token = θωσμένειν   lemma = nan
+
+token = μηδʼ   lemma = μηδέ
+
+token = ἡμῖν   lemma = ἡμεῖς
+
+token = τἄλλʼ   lemma = ἄλλος
+
+token = Χορός   lemma = χορός
+
+token = Δαναΐδων   lemma = Δαναΐς
+
+token = θεοὺς   lemma = θεός
+
+token = χεῦμʼ   lemma = χεῦμα
+
+token = Χορός   lemma = χορός
+
+token = Δαναΐδων   lemma = Δαναΐς
+
+token = μηδʼ   lemma = μηδέ
+
+token = ὑπʼ   lemma = ὑπό
+
+token = στυγίων   lemma = Στύγιος
+
+token = Χορός   lemma = χορός
+
+token = Θεραπαινῶν   lemma = θεράπαινα
+
+token = ὅδʼ   lemma = ὅδε
+
+token = θεὸς   lemma = θεός
+
+token = μετάκοινοι   lemma = μετάκοινος
+
+token = φίλᾷ   lemma = φίλος
+
+token = ματρὶ   lemma = μήτηρ
+
+token = τʼ   lemma = σύ
+
+token = οὐδὲν   lemma = οὐδείς
+
+token = Πειθοῖ   lemma = πειθώ
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = Θεραπαινῶν   lemma = θεράπαινα
+
+token = τʼ   lemma = σύ
+
+token = ἄλγη   lemma = ἄλγος
+
+token = γένοιτʼ   lemma = γίγνομαι
+
+token = Δαναΐς   lemma = nan
+
+token = μοι   lemma = ἐγώ
+
+token = Θεράπαινα   lemma = θεράπαινα
+
+token = Δαναΐς   lemma = nan
+
+token = Θεράπαινα   lemma = θεράπαινα
+
+token = γʼ   lemma = γε
+
+token = Δαναΐς   lemma = nan
+
+token = Θεράπαινα   lemma = θεράπαινα
+
+token = Δαναΐς   lemma = nan
+
+token = τίνα   lemma = τίς
+
+token = με   lemma = ἐγώ
+
+token = Θεράπαινα   lemma = θεράπαινα
+
+token = μηδὲν   lemma = μηδείς
+
+token = Χορός   lemma = χορός
+
+token = ἀποστεροί   lemma = nan
+
+token = η   lemma = η
+
+token = ἐλύσατʼ   lemma = λύω
+
+token = Χορός   lemma = χορός
+
+token = ξίν   lemma = nan
+
+token = ἕπε   lemma = nan
+
+token = σθαι   lemma = nan
+
+token = ἀρθέντʼ   lemma = ἀραρίσκω
+
+token = προστομίων   lemma = προστόμιον
+
+token = λεπτοψαμάθων   lemma = λεπτοψάμαθος
+
+token = Δίαν   lemma = Δῖος
+
+token = λιποῦσαι   lemma = λείπω
+
+token = ἐφʼ   lemma = ἐπί
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = ʼξʼονοταζόμεναι   lemma = nan
+
+token = κύδιστʼ   lemma = κύδιστος
+
+token = κῦμʼ   lemma = κῦμα
+
+token = βοὸς   lemma = βοῦς
+
+token = εὐχόμενον   lemma = εὔχομαι
+
+token = τίνʼ   lemma = τίνω
+
+token = ἀφικοίμεθα   lemma = ἀφικνέομαι
+
+token = τῆ   lemma = τῆ
+
+token = πόντονδʼ   lemma = πόντος
+
+token = τʼ   lemma = σύ
+
+token = τʼ   lemma = σύ
+
+token = τήνδʼ   lemma = ὅδε
+
+token = Χορός   lemma = χορός
+
+token = ὑπερ   lemma = nan
+
+token = τιμάορʼ   lemma = τιμωρός
+
+token = ἶνίν   lemma = ἶνις
+
+token = τʼ   lemma = σύ
+
+token = βοὸς   lemma = βοῦς
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = ὅντʼ   lemma = ὅστε
+
+token = Χορός   lemma = χορός
+
+token = τᾶς   lemma = ὁ
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = ἅτʼ   lemma = ἅτε
+
+token = παιδὸς   lemma = παῖς
+
+token = ὤλετο   lemma = ὄλλυμι
+
+token = δυσμάτορος   lemma = δυσμήτωρ
+
+token = Χορός   lemma = χορός
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = φιλόδυρ   lemma = nan
+
+token = τος   lemma = nan
+
+token = τὰν   lemma = ὁ
+
+token = ἀνθεμίζομαι   lemma = ἀνθεμίζομαι
+
+token = Χορός   lemma = χορός
+
+token = θεοὶ   lemma = θεός
+
+token = πέλοιτʼ   lemma = πέλω
+
+token = Χορός   lemma = χορός
+
+token = Χορός   lemma = χορός
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = Χορός   lemma = χορός
+
+token = ἥμενος   lemma = ἧμαι
+
+token = ἐφʼ   lemma = ἐπί
+
+token = Χορός   lemma = χορός
+
+token = ἰδέσθω   lemma = ὁράω
+
+token = πυθμὴν   lemma = πυθμήν
+
+token = μὸν   lemma = nan
+
+token = μεταγνούς   lemma = μεταγιγνώσκω
+
+token = Χορός   lemma = χορός
+
+token = θρεομένα   lemma = θρέομαι
+
+token = θρεομένη   lemma = θρέομαι
+
+token = με   lemma = ἐγώ
+
+token = Χορός   lemma = χορός
+
+token = Σιδονία   lemma = Σιδόνιος
+
+token = Χορός   lemma = χορός
+
+token = ἐπίδρομʼ   lemma = ἐπίδρομος
+
+token = κῦμʼ   lemma = κῦμα
+
+token = Χορός   lemma = χορός
+
+token = Χορός   lemma = χορός
+
+token = μʼ   lemma = ἐγώ
+
+token = μοι   lemma = ἐγώ
+
+token = Χορός   lemma = χορός
+
+token = Χορός   lemma = χορός
+
+token = μʼ   lemma = ἐγώ
+
+token = σέμνʼ   lemma = σεμνός
+
+token = Χορός   lemma = χορός
+
+token = Χορός   lemma = χορός
+
+token = Ζῆνα   lemma = Ζεύς
+
+token = Χορός   lemma = χορός
+
+token = Ζήν   lemma = Ζεύς
+
+token = Χορός   lemma = χορός
+
+token = τότʼ   lemma = τότε
+
+token = βοὸς   lemma = βοῦς
+
+token = παῖδʼ   lemma = παῖς
+
+token = ἀτιμάσας   lemma = ἀτιμάζω
+
+token = αὐ   lemma = nan
+
+token = τός   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = Ζήν   lemma = Ζεύς
+
+token = ἰῶ   lemma = ἰάομαι
+
+token = δε   lemma = nan
+
+token = τἄμʼ   lemma = ἐγώ
+
+token = δελτουμένας   lemma = δελτόομαι
+
+token = τʼ   lemma = σύ
+
+token = ἡμᾶς   lemma = ἡμεῖς
+
+token = πεπυσμένοι   lemma = πυνθάνομαι
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = τόνδʼ   lemma = ὅδε
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = ἱκετηρίας   lemma = ἱκετηρία
+
+token = ἁγάλματʼ   lemma = ἄγαλμα
+
+token = ζαχρεῖʼ   lemma = ζαχρεῖος
+
+token = ἀμείβεσθʼ   lemma = ἀμείβω
+
+token = τάσδʼ   lemma = ὅδε
+
+token = ἑπέσθω   lemma = ἕπομαι
+
+token = μηδʼ   lemma = μηδέ
+
+token = κάρτʼ   lemma = κάρτα
+
+token = ἴδοιτο   lemma = ὁράω
+
+token = θέλοιμʼ   lemma = ἐθέλω
+
+token = φυγάδʼ   lemma = φυγάς
+
+token = ἀπʼ   lemma = ἀπό
+
+token = τίνʼ   lemma = τίνω
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = τʼ   lemma = σύ
+
+token = ὅδʼ   lemma = ὅδε
+
+token = σέβεσθʼ   lemma = σέβομαι
+
+token = ἁγνὸς   lemma = ἁγνός
+
+token = γένοιτʼ   lemma = γίγνομαι
+
+token = τἀπλακήμαθʼ   lemma = ἀμπλάκημα
+
+token = τόνδε   lemma = ὅδε
+
+token = ὑμῖν   lemma = ὑμεῖς
+
+token = τόνδʼ   lemma = ὅδε
+
+token = Ἀργολὶς   lemma = Ἀργολίς
+
+token = ἐσθὴς   lemma = ἐσθής
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = πόλλʼ   lemma = πολύς
+
+token = ἔτʼ   lemma = ἔτης
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = σὲ   lemma = σός
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = λέγʼ   lemma = λέγω
+
+token = ἐμοί   lemma = ἐγώ
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = Πίνδου   lemma = Πίνδος
+
+token = χρανθεῖσʼ   lemma = χραίνω
+
+token = ποτʼ   lemma = ποτε
+
+token = ηὕρετʼ   lemma = εὑρίσκω
+
+token = τἀπʼ   lemma = ἀπό
+
+token = τʼ   lemma = σύ
+
+token = θʼ   lemma = σύ
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = μυθεῖσθʼ   lemma = μυθέομαι
+
+token = Λιβυστικαῖς   lemma = Λιβυστικός
+
+token = ἐμφερέστεραι   lemma = ἐμφερής
+
+token = τʼ   lemma = σύ
+
+token = ἀρσένων   lemma = ἄρσην
+
+token = τʼ   lemma = σύ
+
+token = παρʼ   lemma = παρά
+
+token = ἀστυγειτονουμένας   lemma = ἀστυγειτονέομαι
+
+token = τʼ   lemma = σύ
+
+token = γένεθλον   lemma = γένεθλον
+
+token = τʼ   lemma = σύ
+
+token = Ζῆνα   lemma = Ζεύς
+
+token = γʼ   lemma = γε
+
+token = θεός   lemma = θεός
+
+token = ἐπʼ   lemma = ἐπί
+
+token = ταῦτʼ   lemma = nan
+
+token = βοΐ   lemma = βοῦς
+
+token = νιν   lemma = νιν
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = ἐμοί   lemma = ἐγώ
+
+token = Μέμφιν   lemma = Μέμφις
+
+token = ἵκετο   lemma = ἱκνέομαι
+
+token = γʼ   lemma = γε
+
+token = Δῖος   lemma = Δῖος
+
+token = τίνʼ   lemma = τίνω
+
+token = ἔτʼ   lemma = ἔτης
+
+token = τοῦδʼ   lemma = ὅδε
+
+token = τοῦτό   lemma = οὗτος
+
+token = μοι   lemma = ἐγώ
+
+token = τοὔνομʼ   lemma = ὄνομα
+
+token = ἁμὸν   lemma = ἁμός
+
+token = μοι   lemma = ἐγώ
+
+token = τίς   lemma = τίς
+
+token = αἰόλʼ   lemma = αἰόλος
+
+token = τήνδʼ   lemma = ὅδε
+
+token = μεταπτοιοῦσαν   lemma = μεταπτοιέω
+
+token = τῶνδʼ   lemma = ὅδε
+
+token = λευκοστεφεῖς   lemma = λευκοστεφής
+
+token = γένωμαι   lemma = γίγνομαι
+
+token = ὠνοῖτο   lemma = ὠνέομαι
+
+token = κεκτημένους   lemma = κτάομαι
+
+token = γʼ   lemma = γε
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = παισὶν   lemma = παῖς
+
+token = γʼ   lemma = γε
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = γʼ   lemma = γε
+
+token = κοινωνὸς   lemma = κοινωνός
+
+token = ὧδʼ   lemma = ὧδε
+
+token = Χορός   lemma = χορός
+
+token = μου   lemma = ἐγώ
+
+token = με   lemma = ἐγώ
+
+token = τὰν   lemma = ὁ
+
+token = ἵνʼ   lemma = ἵνα
+
+token = μέμυ   lemma = nan
+
+token = κε   lemma = ἄν
+
+token = νεύονθʼ   lemma = νεύω
+
+token = τοῦτʼ   lemma = οὗτος
+
+token = μηδʼ   lemma = μηδέ
+
+token = γένηται   lemma = γίγνομαι
+
+token = Χορός   lemma = χορός
+
+token = ἴδοιτο   lemma = ὁράω
+
+token = σὺ   lemma = σύ
+
+token = ὀψιγόνου   lemma = ὀψίγονος
+
+token = αἰδόμενος   lemma = αἰδέομαι
+
+token = ἱεροδόκα   lemma = ἱεροδόκος
+
+token = λήματʼ   lemma = λῆμα
+
+token = ἀπʼ   lemma = ἀπό
+
+token = κάθησθε   lemma = κάθημαι
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = κραίνοιμʼ   lemma = κραίνω
+
+token = ὑπόσχεσιν   lemma = ὑπόσχεσις
+
+token = Χορός   lemma = χορός
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = τόδʼ   lemma = ὅδε
+
+token = μʼ   lemma = ἐγώ
+
+token = φρένας   lemma = φρήν
+
+token = Χορός   lemma = χορός
+
+token = σκοπὸν   lemma = σκοπός
+
+token = προσήμενοι   lemma = πρόσημαι
+
+token = σε   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = ποτʼ   lemma = ποτε
+
+token = ἀρσένων   lemma = ἄρσην
+
+token = ἑλόμενος   lemma = αἱρέω
+
+token = μʼ   lemma = ἐγώ
+
+token = Χορός   lemma = χορός
+
+token = μεταλ   lemma = nan
+
+token = γεῖς   lemma = nan
+
+token = μηδʼ   lemma = μηδέ
+
+token = αὐτοῖσί   lemma = αὐτός
+
+token = θʼ   lemma = σύ
+
+token = ἡμῖν   lemma = ἡμεῖς
+
+token = μήτʼ   lemma = μήτε
+
+token = ὧδʼ   lemma = ὧδε
+
+token = θεὸν   lemma = θεός
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = Χορός   lemma = χορός
+
+token = τὰν   lemma = ὁ
+
+token = τὰν   lemma = ὁ
+
+token = Χορός   lemma = χορός
+
+token = μʼ   lemma = ἐγώ
+
+token = ῥυσια   lemma = nan
+
+token = σθεῖσαν   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = τὰν   lemma = ὁ
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = παισὶ   lemma = παῖς
+
+token = ὁπότερʼ   lemma = ὁπότερος
+
+token = φράσαι   lemma = φράζω
+
+token = πᾶσʼ   lemma = πᾶς
+
+token = ἔστʼ   lemma = ἔστε
+
+token = ναυτικαῖσιν   lemma = ναυτικός
+
+token = μέγʼ   lemma = μέγας
+
+token = γένοιτʼ   lemma = γίγνομαι
+
+token = γένοιτο   lemma = γίγνομαι
+
+token = γένοιτο   lemma = γίγνομαι
+
+token = με   lemma = ἐγώ
+
+token = τάχʼ   lemma = τάχα
+
+token = τίνʼ   lemma = τίνω
+
+token = γηρυθεῖσʼ   lemma = γηρύω
+
+token = ἔσῃ   lemma = εἰμί
+
+token = πιστὸν   lemma = πιστόν
+
+token = τῷδʼ   lemma = ὅδε
+
+token = σοι   lemma = σύ
+
+token = αἰνιγματῶδες   lemma = αἰνιγματώδης
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = τάχιστʼ   lemma = ταχύς
+
+token = μάλʼ   lemma = μάλα
+
+token = τόδʼ   lemma = ὅδε
+
+token = ὑμῖν   lemma = ὑμεῖς
+
+token = μὴ   lemma = μή
+
+token = τόδʼ   lemma = ὅδε
+
+token = παισὶν   lemma = παῖς
+
+token = αἶψʼ   lemma = αἶψα
+
+token = ἐπʼ   lemma = ἐπί
+
+token = μηδʼ   lemma = μηδέ
+
+token = ἐμοῦ   lemma = ἐγώ
+
+token = ἥσσοσιν   lemma = ἥσσων
+
+token = ἡμῖν   lemma = ἡμεῖς
+
+token = τʼ   lemma = σύ
+
+token = διʼ   lemma = διά
+
+token = στείχοιτʼ   lemma = στείχω
+
+token = ἡγεῖσθε   lemma = ἡγέομαι
+
+token = χρεὼν   lemma = χρεών
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ἐμοί   lemma = ἐγώ
+
+token = κατʼ   lemma = κατά
+
+token = με   lemma = ἐγώ
+
+token = σʼ   lemma = σός
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = δρακόντων   lemma = δέρκομαι
+
+token = ἐχθίοσιν   lemma = ἐχθρός
+
+token = γʼ   lemma = γε
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = σὸν   lemma = σός
+
+token = θεοὺς   lemma = θεός
+
+token = λιταῖς   lemma = λιτή
+
+token = παραιτοῦ   lemma = παραιτέομαι
+
+token = σʼ   lemma = σός
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ἕποιτο   lemma = ἕπομαι
+
+token = Χορός   lemma = χορός
+
+token = τὰν   lemma = ὁ
+
+token = Χορός   lemma = χορός
+
+token = εὔφρονʼ   lemma = εὔφρων
+
+token = εὐχόμεθʼ   lemma = εὔχομαι
+
+token = τᾶσδʼ   lemma = ὅδε
+
+token = Χορός   lemma = χορός
+
+token = διατέμ   lemma = nan
+
+token = νουσα   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = Ἀσίδος   lemma = Ἀσίς
+
+token = διʼ   lemma = διά
+
+token = Κιλίκων   lemma = Κίλιξ
+
+token = Παμφύλων   lemma = Πάμφυλος
+
+token = διορνυμένα   lemma = διόρνυμαι
+
+token = τὰν   lemma = ὁ
+
+token = Χορός   lemma = χορός
+
+token = σινουμένα   lemma = σίνομαι
+
+token = μαινομένα   lemma = μαίνομαι
+
+token = ἀτί   lemma = nan
+
+token = μοις   lemma = nan
+
+token = κεντροδα   lemma = nan
+
+token = λήτισι   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = τὰν   lemma = ὁ
+
+token = τὰν   lemma = ὁ
+
+token = θέλ   lemma = nan
+
+token = ξας   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = διʼ   lemma = διά
+
+token = κρέων   lemma = κρέων
+
+token = ἀπο   lemma = nan
+
+token = γείνατο   lemma = γείνομαι
+
+token = παῖδʼ   lemma = παῖς
+
+token = Χορός   lemma = χορός
+
+token = Ἥ   lemma = ὁ
+
+token = ρας   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = τίνʼ   lemma = τίνω
+
+token = ἐπʼ   lemma = ἐπί
+
+token = φυτουργὸς   lemma = φυτουργός
+
+token = Χορός   lemma = χορός
+
+token = ὑπʼ   lemma = ὑπό
+
+token = τινος   lemma = τις
+
+token = ἡμένου   lemma = ἧμαι
+
+token = φίλτατʼ   lemma = φίλος
+
+token = ἐμοί   lemma = ἐγώ
+
+token = ἡμῖν   lemma = ἡμεῖς
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = με   lemma = ἐγώ
+
+token = ἡμᾶς   lemma = ἡμεῖς
+
+token = τʼ   lemma = σύ
+
+token = μήτʼ   lemma = μήτε
+
+token = μήτʼ   lemma = μήτε
+
+token = τινὰ   lemma = τις
+
+token = ἡμῶν   lemma = ἡμεῖς
+
+token = θʼ   lemma = σύ
+
+token = ἐπʼ   lemma = ἐπί
+
+token = ἐπʼ   lemma = ἐπί
+
+token = τέρμονʼ   lemma = τέρμων
+
+token = Χορός   lemma = χορός
+
+token = θεοὶ   lemma = θεός
+
+token = εὐ   lemma = nan
+
+token = κταῖα   lemma = nan
+
+token = Ἄπη   lemma = nan
+
+token = θερί   lemma = nan
+
+token = ζοντα   lemma = nan
+
+token = ἡμᾶς   lemma = ἡμεῖς
+
+token = τάνδʼ   lemma = ὅδε
+
+token = Χορός   lemma = χορός
+
+token = ἀρσένων   lemma = ἄρσην
+
+token = ἀτιμώ   lemma = nan
+
+token = σαντες   lemma = nan
+
+token = σκοπὸν   lemma = σκοπός
+
+token = ἐπʼ   lemma = ἐπί
+
+token = μιαί   lemma = nan
+
+token = νοντα   lemma = nan
+
+token = βω   lemma = nan
+
+token = μοῖς   lemma = nan
+
+token = θεοὺς   lemma = θεός
+
+token = Χορός   lemma = χορός
+
+token = τοιγὰρ   lemma = τοιγάρ
+
+token = σθω   lemma = nan
+
+token = μηδʼ   lemma = μηδέ
+
+token = ρης   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = πρε   lemma = nan
+
+token = σβυτοδόκοι   lemma = nan
+
+token = γεμόν   lemma = nan
+
+token = των   lemma = nan
+
+token = Ζῆνα   lemma = Ζεύς
+
+token = εὐχόμεθʼ   lemma = εὔχομαι
+
+token = κῶν   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = ἀνδροκμὴς   lemma = ἀνδροκμής
+
+token = ἀκίθαριν   lemma = ἀκίθαρις
+
+token = τʼ   lemma = σύ
+
+token = στω   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = τʼ   lemma = σύ
+
+token = τʼ   lemma = σύ
+
+token = φερέ   lemma = nan
+
+token = σθω   lemma = nan
+
+token = φιλοφόρμιγξ   lemma = φιλοφόρμιγξ
+
+token = Χορός   lemma = χορός
+
+token = τʼ   lemma = σύ
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = θεοὺς   lemma = θεός
+
+token = τόδʼ   lemma = ὅδε
+
+token = θεσμίοις   lemma = θέσμιος
+
+token = ὑμεῖς   lemma = ὑμεῖς
+
+token = τρέσητʼ   lemma = τρέω
+
+token = με   lemma = ἐγώ
+
+token = βλέπουσʼ   lemma = βλέπω
+
+token = θʼ   lemma = σύ
+
+token = ἡγεμὼν   lemma = ἡγεμών
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = πρᾶγμʼ   lemma = πρᾶγμα
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ξυνδίκους   lemma = σύνδικος
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = ἔσται   lemma = εἰμί
+
+token = νιν   lemma = νιν
+
+token = λαθέσθαι   lemma = λανθάνω
+
+token = τʼ   lemma = σύ
+
+token = θεοὺς   lemma = θεός
+
+token = μέσῳ   lemma = μέσος
+
+token = Χορός   lemma = χορός
+
+token = μʼ   lemma = ἐγώ
+
+token = μοι   lemma = ἐγώ
+
+token = τελεία   lemma = τέλειος
+
+token = σάφʼ   lemma = σαφής
+
+token = ἐγώ   lemma = ἐγώ
+
+token = Χορός   lemma = χορός
+
+token = μάργον   lemma = μάργος
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = βραχίονʼ   lemma = βραχίων
+
+token = Χορός   lemma = χορός
+
+token = μονωθεῖσʼ   lemma = μονόω
+
+token = οὐδέν   lemma = οὐδείς
+
+token = Χορός   lemma = χορός
+
+token = βω   lemma = nan
+
+token = ἡμῖν   lemma = ἡμεῖς
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = Χορός   lemma = χορός
+
+token = ἡμῶν   lemma = ἡμεῖς
+
+token = χεῖρʼ   lemma = χείρ
+
+token = Χορός   lemma = χορός
+
+token = μεμαργωμένοι   lemma = μαργόομαι
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = γένοιτʼ   lemma = γίγνομαι
+
+token = γέρονθʼ   lemma = γέρων
+
+token = Χορός   lemma = χορός
+
+token = Χορός   lemma = χορός
+
+token = μου   lemma = ἐγώ
+
+token = μʼ   lemma = ἐγώ
+
+token = βρόχου   lemma = βρόχος
+
+token = πρόπαρ   lemma = πρόπαρ
+
+token = θανούσας   lemma = ἀποθνῄσκω
+
+token = Ἀίδας   lemma = ᾍδης
+
+token = Χορός   lemma = χορός
+
+token = μοι   lemma = ἐγώ
+
+token = γένοιτʼ   lemma = γίγνομαι
+
+token = ἀπρόσ   lemma = nan
+
+token = δεικτος   lemma = nan
+
+token = μοι   lemma = ἐγώ
+
+token = δαΐκτορος   lemma = δαϊκτήρ
+
+token = Χορός   lemma = χορός
+
+token = κυσὶν   lemma = κύων
+
+token = ἀναίνομαι   lemma = ἀναίνομαι
+
+token = ἐλευθεροῦ   lemma = ἐλευθερόω
+
+token = ται   lemma = nan
+
+token = τας   lemma = nan
+
+token = τίνʼ   lemma = τίνω
+
+token = Χορός   lemma = χορός
+
+token = μοι   lemma = ἐγώ
+
+token = τʼ   lemma = σύ
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = με   lemma = ἐγώ
+
+token = σὸν   lemma = σός
+
+token = μάρπτις   lemma = μάρπτις
+
+token = μάρπτι   lemma = μάρπτις
+
+token = ἰόφ   lemma = nan
+
+token = ὀμ   lemma = nan
+
+token = κάκκας   lemma = κάκκη
+
+token = δυϊαν   lemma = nan
+
+token = χλιδᾷ   lemma = χλιδάω
+
+token = ναῒ   lemma = ναῦς
+
+token = ριν   lemma = nan
+
+token = ὀλύμεναι   lemma = nan
+
+token = ὀλόμενʼ   lemma = ὄλλυμι
+
+token = ἐπαμίδα   lemma = nan
+
+token = Χορός   lemma = χορός
+
+token = αἵμονες   lemma = αἵμων
+
+token = ἐπάμιδα   lemma = nan
+
+token = ησυδουπιάπιτα   lemma = nan
+
+token = Κῆρυξ   lemma = κῆρυξ
+
+token = τʼ   lemma = σύ
+
+token = δόρυ   lemma = δόρυ
+
+token = Χορός   lemma = χορός
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = Κῆρυξ   lemma = κῆρυξ
+
+token = σὺ   lemma = σύ
+
+token = βαθυμιτροκακὰ   lemma = nan
+
+token = παθῶν   lemma = πάθη
+
+token = ὀλόμεναι   lemma = ὄλλυμι
+
+token = Χορός   lemma = χορός
+
+token = διʼ   lemma = διά
+
+token = ἀλαθεὶς   lemma = ἀλάομαι
+
+token = Κῆρυχ   lemma = nan
+
+token = ὑπερθορῇ   lemma = ὑπερθρῴσκω
+
+token = Χορός   lemma = χορός
+
+token = σʼ   lemma = σός
+
+token = σʼ   lemma = σός
+
+token = ἀποτρέ   lemma = nan
+
+token = ψειεν   lemma = nan
+
+token = Κῆρυξ   lemma = κῆρυξ
+
+token = οὐδάμʼ   lemma = οὐδαμά
+
+token = Χορός   lemma = χορός
+
+token = μʼ   lemma = ἐγώ
+
+token = ἄραχνος   lemma = ἄραχνος
+
+token = φοβερὸν   lemma = φοβερός
+
+token = Κῆρυξ   lemma = κῆρυξ
+
+token = μʼ   lemma = ἐγώ
+
+token = Χορός   lemma = χορός
+
+token = ὄφις   lemma = ὄφις
+
+token = μέ   lemma = ἐγώ
+
+token = δακοῦσʼ   lemma = δάκνω
+
+token = φοβερὸν   lemma = φοβερός
+
+token = ἄσεπτʼ   lemma = ἄσεπτος
+
+token = θαρσεῖτʼ   lemma = θαρσέω
+
+token = ἐρεῖτʼ   lemma = λέγω
+
+token = ἀποσπάσας   lemma = ἀποσπάω
+
+token = τήνδʼ   lemma = ὅδε
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = πόλλʼ   lemma = πολύς
+
+token = ἐμοὶ   lemma = ἐγώ
+
+token = τἄμʼ   lemma = ἐγώ
+
+token = θεοὺς   lemma = θεός
+
+token = οὐδέν   lemma = οὐδείς
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ἄγοιμʼ   lemma = ἄγω
+
+token = λέγοιμʼ   lemma = λέγω
+
+token = παισὶν   lemma = παῖς
+
+token = τοῦτʼ   lemma = οὗτος
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = τίνος   lemma = τίς
+
+token = τʼ   lemma = σύ
+
+token = σοι   lemma = σύ
+
+token = τοὔνομʼ   lemma = ὄνομα
+
+token = σύ   lemma = σύ
+
+token = τʼ   lemma = σύ
+
+token = ξυνέμποροι   lemma = συνέμπορος
+
+token = κατʼ   lemma = κατά
+
+token = μία   lemma = εἷς
+
+token = ταῦτʼ   lemma = οὗτος
+
+token = οὐδʼ   lemma = οὐδέ
+
+token = κατεσφραγισμένα   lemma = κατασφραγίζω
+
+token = τάχιστʼ   lemma = ταχύς
+
+token = ἄρσεσιν   lemma = ἄρσην
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = ἄρσενάς   lemma = ἄρσην
+
+token = ὑμεῖς   lemma = ὑμεῖς
+
+token = δώματʼ   lemma = δῶμα
+
+token = δεδωμάτωμαι   lemma = δωματόομαι
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ἐγὼ   lemma = ἐγώ
+
+token = ἀλλʼ   lemma = ἀλλά
+
+token = τʼ   lemma = σύ
+
+token = ἐφʼ   lemma = ἐπί
+
+token = θʼ   lemma = σύ
+
+token = μου   lemma = ἐγώ
+
+token = ἐμοὶ   lemma = ἐγώ
+
+token = ʼξ   lemma = ἐκ
+
+token = ἀείζων   lemma = ἀείζωος
+
+token = ταῦθʼ   lemma = οὗτος
+
+token = ἀγνῶθʼ   lemma = ἀγνώς
+
+token = τʼ   lemma = σύ
+
+token = ὑμᾶς   lemma = ὑμεῖς
+
+token = ἐμέ   lemma = ἐγώ
+
+token = τήνδʼ   lemma = ὅδε
+
+token = καλωρα   lemma = nan
+
+token = θωσμένειν   lemma = nan
+
+token = μηδʼ   lemma = μηδέ
+
+token = ἡμῖν   lemma = ἡμεῖς
+
+token = τἄλλʼ   lemma = ἄλλος
+
+token = Χορός   lemma = χορός
+
+token = Δαναΐδων   lemma = Δαναΐς
+
+token = θεοὺς   lemma = θεός
+
+token = χεῦμʼ   lemma = χεῦμα
+
+token = Χορός   lemma = χορός
+
+token = Δαναΐδων   lemma = Δαναΐς
+
+token = μηδʼ   lemma = μηδέ
+
+token = ὑπʼ   lemma = ὑπό
+
+token = στυγίων   lemma = Στύγιος
+
+token = Χορός   lemma = χορός
+
+token = Θεραπαινῶν   lemma = θεράπαινα
+
+token = ὅδʼ   lemma = ὅδε
+
+token = θεὸς   lemma = θεός
+
+token = μετάκοινοι   lemma = μετάκοινος
+
+token = φίλᾷ   lemma = φίλος
+
+token = ματρὶ   lemma = μήτηρ
+
+token = τʼ   lemma = σύ
+
+token = οὐδὲν   lemma = οὐδείς
+
+token = Πειθοῖ   lemma = πειθώ
+
+token = τʼ   lemma = σύ
+
+token = Χορός   lemma = χορός
+
+token = Θεραπαινῶν   lemma = θεράπαινα
+
+token = τʼ   lemma = σύ
+
+token = ἄλγη   lemma = ἄλγος
+
+token = γένοιτʼ   lemma = γίγνομαι
+
+token = Δαναΐς   lemma = nan
+
+token = μοι   lemma = ἐγώ
+
+token = Θεράπαινα   lemma = θεράπαινα
+
+token = Δαναΐς   lemma = nan
+
+token = Θεράπαινα   lemma = θεράπαινα
+
+token = γʼ   lemma = γε
+
+token = Δαναΐς   lemma = nan
+
+token = Θεράπαινα   lemma = θεράπαινα
+
+token = Δαναΐς   lemma = nan
+
+token = τίνα   lemma = τίς
+
+token = με   lemma = ἐγώ
+
+token = Θεράπαινα   lemma = θεράπαινα
+
+token = μηδὲν   lemma = μηδείς
+
+token = Χορός   lemma = χορός
+
+token = ἀποστεροί   lemma = nan
+
+token = η   lemma = η
+
+token = ἐλύσατʼ   lemma = λύω
+
+token = Χορός   lemma = χορός
+
+token = ξίν   lemma = nan
+
+token = ἕπε   lemma = nan
+
+token = σθαι   lemma = nan
+
+Warnings found for text/corpus/aeschylus_i.csv file. A report in ./text/warnings/aeschylus_i_warnings.csv
+..... done
