@@ -27,11 +27,6 @@ Created on 21 jul. 2023
 def get_browser():
 
     chrome_options = webdriver.ChromeOptions()
-
-    chrome_options.add_argument('--no-sandbox')
-
-    chrome_options.add_argument('--disable-dev-shm-usage')
-
     chrome_options.add_argument("--headless=new")
 
     browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
