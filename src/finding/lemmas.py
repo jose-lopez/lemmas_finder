@@ -186,7 +186,7 @@ if __name__ == '__main__':
 
         logs_file = root + folders[2] + file_root_name + "_logs" + ".csv"
 
-        new_lemmas_file = root + folders[0] + file_root_name + "new_lemmas.csv"
+        new_lemmas_file = root + folders[0] + file_root_name + "_new_lemmas.csv"
 
         logs = open(
             logs_file, 'w', encoding="utf8")
@@ -223,7 +223,7 @@ if __name__ == '__main__':
 
         input_df.to_csv(processed_file)
 
-        # Building the warnings' file, if there are any, for the actual file in process.
+        # Building the warnings' file, if there are any, for the file on process.
 
         if len(warnings_in_file) != 0:
 
