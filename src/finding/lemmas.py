@@ -184,7 +184,7 @@ if __name__ == '__main__':
 
         logs_file = root + folders[2] + file_root_name + "_logs" + ".csv"
 
-        new_lemmas_file = root + folders[0] + file_root_name + "_lemmas.csv"
+        new_lemmas_file = root + folders[0] + file_root_name + "new_lemmas.csv"
 
         logs = open(
             logs_file, 'w', encoding="utf8")
