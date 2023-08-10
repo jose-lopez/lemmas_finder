@@ -48,6 +48,8 @@ def install_browser():
 
             print(exc)
 
+            exit(1)
+
 
 def get_browser():
 
