@@ -184,8 +184,14 @@ if __name__ == '__main__':
 
         logs_file = root + folders[2] + file_root_name + "_logs" + ".csv"
 
+        new_lemmas_file = root + folders[0] + file_root_name + "_lemmas.csv"
+
         logs = open(
             logs_file, 'w', encoding="utf8")
+
+        warnings_in_file = []
+
+        new_lemmas_in_file = []
 
         input_df = pd.read_csv(file)
 
@@ -209,6 +215,8 @@ if __name__ == '__main__':
 
                 print(f'token = {token}   lemma = {lemma}' + "\n")
 
+                new_lemmas_in_file.append([x, token, lemma])
+
                 input_df.loc[x, "lemma"] = lemma
 
         input_df.to_csv(processed_file)
@@ -222,6 +230,10 @@ if __name__ == '__main__':
             warnings_df = pd.DataFrame(warnings_in_file, columns=['line', 'token', 'lemma', 'error_type'])
 
             warnings_df.to_csv(warnings_file)
+
+        new_lemmas_in_file_df = pd.DataFrame(new_lemmas_in_file, columns=['line', 'token', 'lemma'])
+
+        new_lemmas_in_file_df.to_csv(new_lemmas_file)
 
         logs.close()
 
