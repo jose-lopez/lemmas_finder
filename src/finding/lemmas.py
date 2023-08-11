@@ -95,24 +95,37 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         lemma = nan
 
+        print(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        print(f'URL: {url}' + "\n")
+
         logs.write(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'URL: {url}' + "\n")
         logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
     except TimeoutException as e:
 
         lemma = nan
 
+        print(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        print(f'URL: {url}' + "\n")
+
         logs.write(f'Getting URL error: An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'URL: {url}' + "\n")
         logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
     except Exception as e:
 
         lemma = nan
 
+        print(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        print(f'URL: {url}' + "\n")
+
         print(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+        print(f'URL: {url}' + "\n")
         print(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
         logs.write(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'URL: {url}' + "\n")
         logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
     else:
@@ -133,7 +146,11 @@ def get_lemma(browser, file, line, token, logger, logs):
 
                 lemma = nan
 
+                print(f'Getting scraping error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+                print(f'URL: {url}' + "\n")
+
                 logs.write(f'Getting scraping error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+                logs.write(f'URL: {url}' + "\n")
                 logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
             except Exception as e:
@@ -141,8 +158,10 @@ def get_lemma(browser, file, line, token, logger, logs):
                 lemma = nan
 
                 print(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+                print(f'URL: {url}' + "\n")
 
                 logs.write(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+                logs.write(f'URL: {url}' + "\n")
                 logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
             else:
@@ -166,8 +185,10 @@ def get_lemma(browser, file, line, token, logger, logs):
         except Exception as e:
 
             print(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+            print(f'URL: {url}' + "\n")
 
             logs.write(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+            logs.write(f'URL: {url}' + "\n")
             logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
             logs.close()
