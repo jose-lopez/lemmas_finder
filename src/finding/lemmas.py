@@ -37,7 +37,7 @@ def install_browser():
 
     else:
 
-        print(f'... Installinng Google Chrome' + "\n")
+        print(f'... Installing Google Chrome' + "\n")
 
         try:
 
@@ -46,6 +46,7 @@ def install_browser():
 
         except Exception as exc:
 
+            print("An exception was raised whilst the installation of google-chrome was going on.")
             print(exc)
 
             exit(1)
@@ -91,6 +92,16 @@ def get_lemma(browser, file, line, token, logs):
         lemma = nan
 
         logs.write(f'An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
+
+    except Exception as exc:
+
+        logs.write(f'A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'{exc}')
+
+        print(f'A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+        print(exc)
+
+        lemma = nan
 
     else:
 
