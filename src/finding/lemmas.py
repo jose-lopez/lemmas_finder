@@ -14,7 +14,8 @@ import os
 import pandas as pd
 from numpy.core.numeric import nan
 import re
-
+import sys
+import logging
 
 '''
 Created on 21 jul. 2023
@@ -44,10 +45,10 @@ def install_browser():
             print(os.popen('wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb').read())
             print(os.popen('apt install ./google-chrome-stable_current_amd64.deb').read())
 
-        except Exception as exc:
+        except Exception as e:
 
             print("An exception was raised whilst the installation of google-chrome was going on.")
-            print(exc)
+            print(e)
 
             exit(1)
 
@@ -62,12 +63,21 @@ def get_browser():
 
     chrome_options.add_argument("--headless=new")
 
-    browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+    try:
+
+        browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+
+    except Exception as e:
+
+        print("An exception was raised whilst Selenium's webdriver was trying to open google-chrome.")
+        print(e)
+
+        exit(1)
 
     return browser
 
 
-def get_lemma(browser, file, line, token, logs):
+def get_lemma(browser, file, line, token, logger, logs):
 
     url_base = "https://logeion.uchicago.edu/morpho/"
 
@@ -81,27 +91,29 @@ def get_lemma(browser, file, line, token, logs):
 
         WebDriverWait(browser, 10).until(EC.text_to_be_present_in_element((By.TAG_NAME, "h3"), "Short Definition"))
 
-    except NoSuchElementException:
+    except NoSuchElementException as e:
 
         lemma = nan
 
-        logs.write(f'An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
-    except TimeoutException:
+    except TimeoutException as e:
+
+        lemma = nan
+
+        logs.write(f'Getting URL error: An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
+
+    except Exception as e:
 
         lemma = nan
 
-        logs.write(f'An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
+        print(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+        print(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
-    except Exception as exc:
-
-        logs.write(f'A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
-        logs.write(f'{exc}')
-
-        print(f'A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
-        print(exc)
-
-        lemma = nan
+        logs.write(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
     else:
 
@@ -113,17 +125,37 @@ def get_lemma(browser, file, line, token, logs):
 
         except NoSuchElementException:
 
-            possible_lemma = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
+            try:
 
-            invalid_lemma = re.search(r'[a-zA-Z0-9]+', possible_lemma)
+                possible_lemma = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
 
-            if invalid_lemma:
+            except NoSuchElementException as e:
 
                 lemma = nan
 
+                logs.write(f'Getting scraping error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+                logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
+
+            except Exception as e:
+
+                lemma = nan
+
+                print(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+
+                logs.write(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+                logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
+
             else:
 
-                lemma = possible_lemma
+                invalid_lemma = re.search(r'[a-zA-Z0-9]+', possible_lemma)
+
+                if invalid_lemma:
+
+                    lemma = nan
+
+                else:
+
+                    lemma = possible_lemma
 
     finally:
 
@@ -183,6 +215,8 @@ if __name__ == '__main__':
 
     warnings_in_file = []
 
+    logger = logging.getLogger()
+
     for file in files:
 
         file_name = "/" + file.split("/")[-1]
@@ -224,9 +258,7 @@ if __name__ == '__main__':
 
             if lemma is nan:
 
-                lemma = get_lemma(browser, file, x, token, logs)
-
-                print(f'token = {token}   lemma = {lemma}' + "\n")
+                lemma = get_lemma(browser, file, x, token, logger, logs)
 
                 new_lemmas_in_file.append([x, token, lemma])
 
