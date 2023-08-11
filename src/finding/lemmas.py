@@ -55,17 +55,35 @@ def install_browser():
 
 def get_browser():
 
-    chrome_options = webdriver.ChromeOptions()
+    options = webdriver.ChromeOptions()
 
-    chrome_options.add_argument('--no-sandbox')
+    options.add_argument('--no-sandbox')
 
-    chrome_options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-dev-shm-usage')
 
-    chrome_options.add_argument("--headless=new")
+    options.add_argument("--headless=new")
+
+    options.add_argument("--disable-web-security")
+
+    options.add_argument("--disable-extensions")
+
+    options.add_argument("--disable-notifications")
+
+    options.add_argument("--ignore-certificate-errors")
+
+    options.add_argument("--allow-running-insecure-content")
+
+    options.add_argument("--no-default-browser-check")
+
+    options.add_argument("--no-first-run")
+
+    options.add_argument("--no-proxy-server")
+
+    options.add_argument("--disable-blink-features=AutomationController")
 
     try:
 
-        browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+        browser = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
     except Exception as e:
 
@@ -89,7 +107,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         # Waiting for a totally deployed URL.
 
-        WebDriverWait(browser, 10).until(EC.text_to_be_present_in_element((By.TAG_NAME, "h3"), "Short Definition"))
+        WebDriverWait(browser, 20).until(EC.text_to_be_present_in_element((By.TAG_NAME, "h3"), "Short Definition"))
 
     except NoSuchElementException as e:
 
@@ -106,7 +124,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         lemma = nan
 
-        print(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        print(f'Getting URL error: An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
         print(f'URL: {url}' + "\n")
 
         logs.write(f'Getting URL error: An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
@@ -117,7 +135,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         lemma = nan
 
-        print(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        print(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
         print(f'URL: {url}' + "\n")
 
         print(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
@@ -259,13 +277,13 @@ if __name__ == '__main__':
 
         processed_files += 1
 
-        processed_file = root + folders[0] + file_name
+        processed_file = root + folders[0] + file_root_name + "_processed.csv"
+
+        new_lemmas_file = root + folders[0] + file_root_name + "_new_lemmas.csv"
 
         warnings_file = root + folders[1] + file_root_name + "_warnings" + ".csv"
 
         logs_file = root + folders[2] + file_root_name + "_logs" + ".csv"
-
-        new_lemmas_file = root + folders[0] + file_root_name + "_new_lemmas.csv"
 
         logs = open(
             logs_file, 'w', encoding="utf8")
