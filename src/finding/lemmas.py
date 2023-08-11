@@ -159,7 +159,20 @@ def get_lemma(browser, file, line, token, logger, logs):
 
     finally:
 
-        return lemma
+        try:
+
+            return lemma
+
+        except UnboundLocalError as e:
+
+            print(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+
+            logs.write(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+            logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
+
+            logs.close()
+
+            exit()
 
 
 def check_warning(token, lemma):
