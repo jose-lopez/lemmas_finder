@@ -163,7 +163,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
             return lemma
 
-        except UnboundLocalError as e:
+        except Exception as e:
 
             print(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
 
