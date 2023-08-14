@@ -60,7 +60,7 @@ def get_browser():
 
     options.add_argument('--disable-dev-shm-usage')
 
-    # options.add_argument("--headless=new")
+    options.add_argument("--headless=new")
 
     options.add_argument("--disable-web-security")
 
@@ -98,9 +98,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
     url_base = "https://logeion.uchicago.edu/morpho/"
 
-    # url = url_base + quote(token)
-
-    url = "https://logeion.uchicago.edu/morpho/%CF%84%CF%81%CE%B1%CF%80%CE%B5%CE%B6%E1%BF%B6%CE%BD"
+    url = url_base + quote(token)
 
     browser.get(url)  # navigate to URL
 
@@ -203,10 +201,10 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         except Exception as e:
 
-            print(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+            print(f'Getting return lemma error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
             print(f'URL: {url}' + "\n")
 
-            logs.write(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+            logs.write(f'Getting return lemma error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
             logs.write(f'URL: {url}' + "\n")
             logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
 
@@ -219,7 +217,7 @@ def check_token(token):
 
     warning = False
 
-    invalid_token = re.search(r'[a-zA-Z0-9#]+', token)
+    invalid_token = re.search("[^\u1F00-\u1FFF\u0370-\u03FF\.',;·]", token)
 
     if invalid_token:
 
@@ -231,92 +229,92 @@ def check_token(token):
 if __name__ == '__main__':
 
     install_browser()
-
+    
     folders = ['processed', 'warnings', 'logs']
-
+    
     root = "./text/"
     corpus = root + "corpus"
-
+    
     for folder in folders:
         _path = root + folder
         if not path.exists(_path):
             os.mkdir(_path)
-
+    
     processed_files = 0
-
+    
     browser = get_browser()
-
+    
     files = [str(x) for x in Path(corpus).glob("**/*.csv")]
-
+    
     files_to_process = len(files)
-
+    
     warnings_in_file = []
-
+    
     logger = logging.getLogger()
-
+    
     for file in files:
-
+    
         file_name = "/" + file.split("/")[-1]
-
+    
         file_root_name = file_name.split(".")[0]
-
+    
         processed_files += 1
-
+    
         processed_file = root + folders[0] + file_root_name + "_processed.csv"
-
+    
         new_lemmas_file = root + folders[0] + file_root_name + "_new_lemmas.csv"
-
+    
         warnings_file = root + folders[1] + file_root_name + "_warnings" + ".csv"
-
+    
         logs_file = root + folders[2] + file_root_name + "_logs" + ".csv"
-
+    
         logs = open(
             logs_file, 'w', encoding="utf8")
-
+    
         warnings_in_file = []
-
+    
         new_lemmas_in_file = []
-
+    
         input_df = pd.read_csv(file)
-
+    
         print(f'Getting lemmas for {file} file: {processed_files} | {files_to_process}' + "\n")
-
+    
         for x in input_df.index:
-
+    
             token = input_df.loc[x, "token"]
-
+    
             lemma = input_df.loc[x, "lemma"]
-
+    
             warning = check_token(token)
-
+    
             if warning:
-
+    
                 warnings_in_file.append([x, token])
-
+    
             if lemma is nan:
-
+    
                 lemma = get_lemma(browser, file, x, token, logger, logs)
-
+    
                 new_lemmas_in_file.append([x, token, lemma])
-
+    
                 input_df.loc[x, "lemma"] = lemma
-
+    
         input_df.to_csv(processed_file)
-
+    
         # Building the warnings' file, if there are any, for the file on process.
-
+    
         if len(warnings_in_file) != 0:
-
+    
             print(f'Warnings found for {file} file. A report in {warnings_file}')
-
+    
             warnings_df = pd.DataFrame(warnings_in_file, columns=['line', 'token'])
-
+    
             warnings_df.to_csv(warnings_file)
-
+    
         new_lemmas_in_file_df = pd.DataFrame(new_lemmas_in_file, columns=['line', 'token', 'lemma'])
-
+    
         new_lemmas_in_file_df.to_csv(new_lemmas_file)
-
+    
         logs.close()
-
+    
     print(f'..... done')
