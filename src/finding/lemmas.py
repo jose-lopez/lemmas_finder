@@ -14,7 +14,6 @@ import os
 import pandas as pd
 from numpy.core.numeric import nan
 import re
-import sys
 import logging
 
 '''
@@ -61,7 +60,7 @@ def get_browser():
 
     options.add_argument('--disable-dev-shm-usage')
 
-    options.add_argument("--headless=new")
+    # options.add_argument("--headless=new")
 
     options.add_argument("--disable-web-security")
 
@@ -99,7 +98,9 @@ def get_lemma(browser, file, line, token, logger, logs):
 
     url_base = "https://logeion.uchicago.edu/morpho/"
 
-    url = url_base + quote(token)
+    # url = url_base + quote(token)
+
+    url = "https://logeion.uchicago.edu/morpho/%CF%84%CF%81%CE%B1%CF%80%CE%B5%CE%B6%E1%BF%B6%CE%BD"
 
     browser.get(url)  # navigate to URL
 
@@ -214,31 +215,15 @@ def get_lemma(browser, file, line, token, logger, logs):
             exit()
 
 
-def check_warning(token, lemma):
+def check_token(token):
 
-    warning = None
+    warning = False
 
-    invalid_token = re.search(r'[a-zA-Z0-9]+', token)
+    invalid_token = re.search(r'[a-zA-Z0-9#]+', token)
 
-    if lemma is not nan:
+    if invalid_token:
 
-        invalid_lemma = re.search(r'[a-zA-Z0-9]+', lemma)
-
-    else:
-
-        invalid_lemma = None
-
-    if invalid_token and not invalid_lemma:
-
-        warning = 1
-
-    if not invalid_token and invalid_lemma:
-
-        warning = 2
-
-    if invalid_token and invalid_lemma:
-
-        warning = 3
+        warning = True
 
     return warning
 
@@ -302,11 +287,11 @@ if __name__ == '__main__':
 
             lemma = input_df.loc[x, "lemma"]
 
-            warning = check_warning(token, lemma)
+            warning = check_token(token)
 
             if warning:
 
-                warnings_in_file.append([x, token, lemma, warning])
+                warnings_in_file.append([x, token])
 
             if lemma is nan:
 
@@ -324,7 +309,7 @@ if __name__ == '__main__':
 
             print(f'Warnings found for {file} file. A report in {warnings_file}')
 
-            warnings_df = pd.DataFrame(warnings_in_file, columns=['line', 'token', 'lemma', 'error_type'])
+            warnings_df = pd.DataFrame(warnings_in_file, columns=['line', 'token'])
 
             warnings_df.to_csv(warnings_file)
 
