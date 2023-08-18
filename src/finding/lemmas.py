@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from urllib.parse import quote
 from os import path
 from pathlib import Path
@@ -60,7 +60,7 @@ def get_browser():
 
     options.add_argument('--disable-dev-shm-usage')
 
-    options.add_argument("--headless=new")
+    # options.add_argument("--headless=new")
 
     options.add_argument("--disable-web-security")
 
@@ -96,19 +96,54 @@ def get_browser():
 
 def get_lemma(browser, file, line, token, logger, logs):
 
-    # url_base = "https://logeion.uchicago.edu/morpho/"
+    url_base = "https://logeion.uchicago.edu/morpho/"
 
-    # url = url_base + quote(token)
+    url = url_base + quote(token)
 
-    url = 'https://logeion.uchicago.edu/morpho/%E1%BC%90%CE%BA%CE%B1%CE%BB%CE%BB%CF%89%CF%80%CE%AF%CE%B6%CE%BF%CE%BD%CF%84%CE%BF'
+    # url = 'https://logeion.uchicago.edu/morpho/%E1%BC%90%CE%BA%CE%B1%CE%BB%CE%BB%CF%89%CF%80%CE%AF%CE%B6%CE%BF%CE%BD%CF%84%CE%BF'
 
     browser.get(url)  # navigate to URL
+
+    wait = WebDriverWait(browser, 10, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
 
     try:
 
         # Waiting for a totally deployed URL.
 
-        WebDriverWait(browser, 10).until(EC.text_to_be_present_in_element((By.TAG_NAME, "h3"), "Short Definition"))
+        stable_page = False
+
+        while not stable_page:
+
+            md_content_element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "md-content.layout-padding._md")))
+
+            div_element = md_content_element.find_element(By.TAG_NAME, "div")
+
+            ul_elements = div_element.find_elements(By.TAG_NAME, "ul")
+
+            # browser.find_elements(By.CSS_SELECTOR, "li.ng-binding.ng-scope").text.strip()
+
+            # elements = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.ng-scope")))
+
+            for element in ul_elements:
+
+                print(element.text)
+
+            p_elements = ul_elements[2].find_element(By.TAG_NAME, "li").find_elements(By.TAG_NAME, "p")
+
+            for p in p_elements:
+
+                print(p.text)
+
+            # To test if a critical content is already loaded and, therefore, the page is already deployed.
+            content = ul_elements[2].find_element(By.CSS_SELECTOR, "li.ng-binding.ng-scope").text.strip()
+
+            if len(content) == 0:
+
+                continue
+
+            else:
+
+                stable_page = True
 
     except NoSuchElementException as e:
 
@@ -119,7 +154,8 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         logs.write(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
-        logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
+        MSG = logger.exception("Exception Occurred while code Execution: " + str(e))
+        logs.write(f'{MSG}' + "\n")
 
     except TimeoutException as e:
 
@@ -130,7 +166,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         logs.write(f'Getting URL error: An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
-        logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
+        logs.write(f'URL: {e}' + "\n")
 
     except Exception as e:
 
@@ -141,11 +177,8 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         print(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
         print(f'URL: {url}' + "\n")
-        print(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
-
-        logs.write(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
-        logs.write(f'URL: {url}' + "\n")
-        logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
+        MSG = logger.exception("Exception Occurred while code Execution: " + str(e))
+        logs.write(f'{MSG}' + "\n")
 
     else:
 
@@ -159,7 +192,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
             try:
 
-                possible_lemma = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
+                possible_lemmas = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
 
             except NoSuchElementException as e:
 
@@ -170,7 +203,9 @@ def get_lemma(browser, file, line, token, logger, logs):
 
                 logs.write(f'Getting scraping error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
                 logs.write(f'URL: {url}' + "\n")
-                logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
+                logs.write(f'URL: {e}' + "\n")
+                MSG = logger.exception("Exception Occurred while code Execution: " + str(e))
+                logs.write(f'{MSG}' + "\n")
 
             except Exception as e:
 
@@ -181,7 +216,8 @@ def get_lemma(browser, file, line, token, logger, logs):
 
                 logs.write(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
                 logs.write(f'URL: {url}' + "\n")
-                logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
+                MSG = logger.exception("Exception Occurred while code Execution: " + str(e))
+                logs.write(f'{MSG}' + "\n")
 
             else:
 
@@ -197,22 +233,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
     finally:
 
-        try:
-
-            return lemma
-
-        except Exception as e:
-
-            print(f'Getting return lemma error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
-            print(f'URL: {url}' + "\n")
-
-            logs.write(f'Getting return lemma error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
-            logs.write(f'URL: {url}' + "\n")
-            logs.write(f'{logger.exception("Exception Occurred while code Execution: " + str(e))}' + "\n")
-
-            logs.close()
-
-            exit()
+        return lemma
 
 
 def check_token(token):
@@ -320,5 +341,7 @@ if __name__ == '__main__':
         new_lemmas_in_file_df.to_csv(new_lemmas_file)
 
         logs.close()
+
+    browser.close()
 
     print(f'..... done')
