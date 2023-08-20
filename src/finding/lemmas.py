@@ -94,6 +94,27 @@ def get_browser():
     return browser
 
 
+def get_best_lemma(frequency_elements: list) -> str:
+
+    possible_lemmas = {}
+
+    for element in frequency_elements:
+
+        lemma = re.search("[\u1F00-\u1FFF\u0370-\u03FF\ʼ]+", element.text).group()
+
+        frequency = re.search("[0-9]+", element.text).group()
+
+        possible_lemmas[lemma] = int(frequency)
+
+    sorted_lemmas = sorted(possible_lemmas.items(), key=lambda x: x[1], reverse=True)
+
+    print(sorted_lemmas)
+
+    (best_lemma, _) = sorted_lemmas[0]
+
+    return best_lemma
+
+
 def get_lemma(browser, file, line, token, logger, logs):
 
     url_base = "https://logeion.uchicago.edu/morpho/"
@@ -124,24 +145,15 @@ def get_lemma(browser, file, line, token, logger, logs):
 
             # elements = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.ng-scope")))
 
-            for element in ul_elements:
+            # To test if a critical content is already loaded and, therefore, the page is already deployed.
+
+            frequency_elements = ul_elements[2].find_element(By.TAG_NAME, "li").find_elements(By.TAG_NAME, "p")
+
+            for element in frequency_elements:
 
                 print(element.text)
 
-            p_elements = ul_elements[2].find_element(By.TAG_NAME, "li").find_elements(By.TAG_NAME, "p")
-
-            for p in p_elements:
-
-                print(p.text)
-
-            # To test if a critical content is already loaded and, therefore, the page is already deployed.
-            content = ul_elements[2].find_element(By.CSS_SELECTOR, "li.ng-binding.ng-scope").text.strip()
-
-            if len(content) == 0:
-
-                continue
-
-            else:
+            if len(frequency_elements) != 0:
 
                 stable_page = True
 
@@ -192,7 +204,8 @@ def get_lemma(browser, file, line, token, logger, logs):
 
             try:
 
-                possible_lemmas = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
+                # possible_lemma = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
+                best_lemma = get_best_lemma(frequency_elements)
 
             except NoSuchElementException as e:
 
@@ -221,7 +234,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
             else:
 
-                invalid_lemma = re.search(r'[a-zA-Z0-9]+', possible_lemma)
+                invalid_lemma = re.search(r'[a-zA-Z0-9]+', best_lemma)
 
                 if invalid_lemma:
 
@@ -229,7 +242,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
                 else:
 
-                    lemma = possible_lemma
+                    lemma = best_lemma
 
     finally:
 
