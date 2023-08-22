@@ -15,6 +15,7 @@ import pandas as pd
 from numpy.core.numeric import nan
 import re
 import logging
+from pandas.core.nanops import nanall
 
 '''
 Created on 21 jul. 2023
@@ -100,17 +101,23 @@ def get_best_lemma(frequency_elements: list) -> str:
 
     for element in frequency_elements:
 
-        lemma = re.search("[\u1F00-\u1FFF\u0370-\u03FF\ʼ]+", element.text).group()
+        lemma = re.search("[\u1F00-\u1FFF\u0370-\u03FF\ʼ]+", element.text)
 
-        frequency = re.search("[0-9]+", element.text).group()
+        frequency = re.search("[0-9]+", element.text)
 
-        possible_lemmas[lemma] = int(frequency)
+        if lemma and frequency:
 
-    sorted_lemmas = sorted(possible_lemmas.items(), key=lambda x: x[1], reverse=True)
+            possible_lemmas[lemma.group()] = int(frequency.group())
 
-    print(sorted_lemmas)
+    if possible_lemmas:
 
-    (best_lemma, _) = sorted_lemmas[0]
+        sorted_lemmas = sorted(possible_lemmas.items(), key=lambda x: x[1], reverse=True)
+
+        (best_lemma, _) = sorted_lemmas[0]
+
+    else:
+
+        best_lemma = nan
 
     return best_lemma
 
@@ -125,51 +132,71 @@ def get_lemma(browser, file, line, token, logger, logs):
 
     browser.get(url)  # navigate to URL
 
-    wait = WebDriverWait(browser, 10, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
+    wait = WebDriverWait(browser, 10, poll_frequency=2, ignored_exceptions=[TimeoutException, NoSuchElementException])
 
     try:
-
-        # Waiting for a totally deployed URL.
 
         stable_page = False
 
         while not stable_page:
 
-            md_content_element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "md-content.layout-padding._md")))
+            # Waiting until the Frequency field has some 'p' elements
+
+            wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "p.ng-binding.ng-scope")))
+
+            md_content_element = browser.find_element(By.CSS_SELECTOR, "md-content.layout-padding._md")
 
             div_element = md_content_element.find_element(By.TAG_NAME, "div")
 
             ul_elements = div_element.find_elements(By.TAG_NAME, "ul")
 
-            # browser.find_elements(By.CSS_SELECTOR, "li.ng-binding.ng-scope").text.strip()
+            if not ul_elements:  # or those cases in which there aren't any frequencies for the token.
 
-            # elements = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "div.ng-scope")))
-
-            # To test if a critical content is already loaded and, therefore, the page is already deployed.
-
-            frequency_elements = ul_elements[2].find_element(By.TAG_NAME, "li").find_elements(By.TAG_NAME, "p")
-
-            for element in frequency_elements:
-
-                print(element.text)
-
-            if len(frequency_elements) != 0:
+                best_lemma = nan
 
                 stable_page = True
 
-    except NoSuchElementException as e:
+            else:  # Here we have a short definition and related frequencies for its lemmas.
+
+                while len(ul_elements) != 3:
+
+                    print(f'The length of ul elements: {len(ul_elements)}    token: {token}')
+
+                    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "p.ng-binding.ng-scope")))
+
+                else:
+
+                    # Getting the best lemma for a valid token
+
+                    print(f'The length of ul elements: {len(ul_elements)}    token: {token}')
+
+                    frequency_elements = ul_elements[2].find_element(By.TAG_NAME, "li").find_elements(By.TAG_NAME, "p")
+
+                    best_lemma = get_best_lemma(frequency_elements)
+
+                    """
+                    for element in frequency_elements:
+
+                        print(element.text)
+                    """
+
+                    if len(frequency_elements) != 0:
+
+                        stable_page = True
+
+    except NoSuchElementException:
 
         lemma = nan
 
-        print(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
-        print(f'URL: {url}' + "\n")
+        if ul_elements:
 
-        logs.write(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
-        logs.write(f'URL: {url}' + "\n")
-        MSG = logger.exception("Exception Occurred while code Execution: " + str(e))
-        logs.write(f'{MSG}' + "\n")
+            print(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+            print(f'URL: {url}' + "\n")
 
-    except TimeoutException as e:
+            logs.write(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+            logs.write(f'URL: {url}' + "\n")
+
+    except TimeoutException:
 
         lemma = nan
 
@@ -178,7 +205,6 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         logs.write(f'Getting URL error: An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
-        logs.write(f'URL: {e}' + "\n")
 
     except Exception as e:
 
@@ -187,10 +213,10 @@ def get_lemma(browser, file, line, token, logger, logs):
         print(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
         print(f'URL: {url}' + "\n")
 
-        print(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
-        print(f'URL: {url}' + "\n")
-        MSG = logger.exception("Exception Occurred while code Execution: " + str(e))
-        logs.write(f'{MSG}' + "\n")
+        logs.write(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'URL: {url}' + "\n")
+
+        logger.exception("Exception occurred while code Execution: " + str(e))
 
     else:
 
@@ -204,45 +230,13 @@ def get_lemma(browser, file, line, token, logger, logs):
 
             try:
 
-                # possible_lemma = browser.find_element(By.CSS_SELECTOR, 'a.ng-binding').text
-                best_lemma = get_best_lemma(frequency_elements)
-
-            except NoSuchElementException as e:
+                browser.find_element(By.XPATH, "//*[contains(text(), 'Morpho cannot find the form you a searching for')]")
 
                 lemma = nan
 
-                print(f'Getting scraping error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
-                print(f'URL: {url}' + "\n")
+            except NoSuchElementException:
 
-                logs.write(f'Getting scraping error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
-                logs.write(f'URL: {url}' + "\n")
-                logs.write(f'URL: {e}' + "\n")
-                MSG = logger.exception("Exception Occurred while code Execution: " + str(e))
-                logs.write(f'{MSG}' + "\n")
-
-            except Exception as e:
-
-                lemma = nan
-
-                print(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
-                print(f'URL: {url}' + "\n")
-
-                logs.write(f'Getting scraping error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
-                logs.write(f'URL: {url}' + "\n")
-                MSG = logger.exception("Exception Occurred while code Execution: " + str(e))
-                logs.write(f'{MSG}' + "\n")
-
-            else:
-
-                invalid_lemma = re.search(r'[a-zA-Z0-9]+', best_lemma)
-
-                if invalid_lemma:
-
-                    lemma = nan
-
-                else:
-
-                    lemma = best_lemma
+                lemma = best_lemma
 
     finally:
 
