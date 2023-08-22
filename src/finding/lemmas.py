@@ -15,7 +15,6 @@ import pandas as pd
 from numpy.core.numeric import nan
 import re
 import logging
-from pandas.core.nanops import nanall
 
 '''
 Created on 21 jul. 2023
@@ -61,7 +60,7 @@ def get_browser():
 
     options.add_argument('--disable-dev-shm-usage')
 
-    # options.add_argument("--headless=new")
+    options.add_argument("--headless=new")
 
     options.add_argument("--disable-web-security")
 
@@ -132,7 +131,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
     browser.get(url)  # navigate to URL
 
-    wait = WebDriverWait(browser, 10, poll_frequency=2, ignored_exceptions=[TimeoutException, NoSuchElementException])
+    wait = WebDriverWait(browser, 10, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
 
     try:
 
@@ -158,17 +157,11 @@ def get_lemma(browser, file, line, token, logger, logs):
 
             else:  # Here we have a short definition and related frequencies for its lemmas.
 
-                while len(ul_elements) != 3:
+                # print(f'The length of ul elements: {len(ul_elements)}    token: {token}')
 
-                    print(f'The length of ul elements: {len(ul_elements)}    token: {token}')
-
-                    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "p.ng-binding.ng-scope")))
-
-                else:
+                if len(ul_elements) == 3:
 
                     # Getting the best lemma for a valid token
-
-                    print(f'The length of ul elements: {len(ul_elements)}    token: {token}')
 
                     frequency_elements = ul_elements[2].find_element(By.TAG_NAME, "li").find_elements(By.TAG_NAME, "p")
 
@@ -180,9 +173,7 @@ def get_lemma(browser, file, line, token, logger, logs):
                         print(element.text)
                     """
 
-                    if len(frequency_elements) != 0:
-
-                        stable_page = True
+                    stable_page = True
 
     except NoSuchElementException:
 
@@ -325,7 +316,7 @@ if __name__ == '__main__':
 
                 lemma = get_lemma(browser, file, x, token, logger, logs)
 
-                print(f'Token {token}       lemma : {lemma}')
+                # print(f'Token {token}       lemma : {lemma}')
 
                 new_lemmas_in_file.append([x, token, lemma])
 
