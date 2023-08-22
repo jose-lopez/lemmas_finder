@@ -14,7 +14,6 @@ import os
 import pandas as pd
 from numpy.core.numeric import nan
 import re
-import logging
 
 '''
 Created on 21 jul. 2023
@@ -121,7 +120,7 @@ def get_best_lemma(frequency_elements: list) -> str:
     return best_lemma
 
 
-def get_lemma(browser, file, line, token, logger, logs):
+def get_lemma(browser, file, line, token, logs):
 
     url_base = "https://logeion.uchicago.edu/morpho/"
 
@@ -265,8 +264,6 @@ if __name__ == '__main__':
 
     warnings_in_file = []
 
-    logger = logging.getLogger()
-
     for file in files:
 
         file_name = "/" + file.split("/")[-1]
@@ -308,7 +305,7 @@ if __name__ == '__main__':
 
             if lemma is nan:
 
-                lemma = get_lemma(browser, file, x, token, logger, logs)
+                lemma = get_lemma(browser, file, x, token, logs)
 
                 # print(f'Token {token}       lemma : {lemma}')
 
