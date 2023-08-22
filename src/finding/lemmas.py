@@ -127,8 +127,6 @@ def get_lemma(browser, file, line, token, logger, logs):
 
     url = url_base + quote(token)
 
-    # url = 'https://logeion.uchicago.edu/morpho/%E1%BC%90%CE%BA%CE%B1%CE%BB%CE%BB%CF%89%CF%80%CE%AF%CE%B6%CE%BF%CE%BD%CF%84%CE%BF'
-
     browser.get(url)  # navigate to URL
 
     wait = WebDriverWait(browser, 10, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
@@ -143,23 +141,25 @@ def get_lemma(browser, file, line, token, logger, logs):
 
             wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "p.ng-binding.ng-scope")))
 
+            # Getting the HTML elements for the web scraping of lemmas and its frequencies.
+
             md_content_element = browser.find_element(By.CSS_SELECTOR, "md-content.layout-padding._md")
 
             div_element = md_content_element.find_element(By.TAG_NAME, "div")
 
             ul_elements = div_element.find_elements(By.TAG_NAME, "ul")
 
-            if not ul_elements:  # or those cases in which there aren't any frequencies for the token.
+            if not ul_elements:  # For those cases in which there aren't any lemmas and frequencies for the token.
 
                 best_lemma = nan
 
                 stable_page = True
 
-            else:  # Here we have a short definition and related frequencies for its lemmas.
+            else:  # Here we have a "Frequency" element, lemmas and related frequencies.
 
                 # print(f'The length of ul elements: {len(ul_elements)}    token: {token}')
 
-                if len(ul_elements) == 3:
+                if len(ul_elements) == 3:  # The second of the ul_elements contains the lemmas and its frequencies.
 
                     # Getting the best lemma for a valid token
 
@@ -175,7 +175,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
                     stable_page = True
 
-    except NoSuchElementException:
+    except NoSuchElementException as e:
 
         lemma = nan
 
@@ -186,8 +186,11 @@ def get_lemma(browser, file, line, token, logger, logs):
 
             logs.write(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
             logs.write(f'URL: {url}' + "\n")
+            logs.write(f'Exception occurred while code Execution:  + {str(e)}' + "\n")
 
-    except TimeoutException:
+            logger.exception("Exception occurred while code Execution: " + str(e))
+
+    except TimeoutException as e:
 
         lemma = nan
 
@@ -196,6 +199,9 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         logs.write(f'Getting URL error: An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
+        logs.write(f'Exception occurred while code Execution:  + {str(e)}' + "\n")
+
+        logger.exception("Exception occurred while code Execution: " + str(e))
 
     except Exception as e:
 
@@ -206,6 +212,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         logs.write(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
+        logs.write(f'Exception occurred while code Execution:  + {str(e)}' + "\n")
 
         logger.exception("Exception occurred while code Execution: " + str(e))
 
