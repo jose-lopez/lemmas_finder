@@ -129,9 +129,10 @@ def get_lemma(browser, file, line, token, logger, logs):
 
     browser.get(url)  # navigate to URL
 
-    # The number of ul elements to wait for before getting lemmas and its frequencies.
+    # The number of "UL" html elements to wait for before getting lemmas and its frequencies.
     NUM_UL_ELEMENTS = 3
 
+    # Setting how the waiting process must be done
     wait = WebDriverWait(browser, 10, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
 
     try:
@@ -140,11 +141,11 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         while not stable_page:
 
-            # Waiting until the Frequency field has some 'p' elements
+            # Waiting until the Frequency field has some 'p' html elements
 
             wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "p.ng-binding.ng-scope")))
 
-            # Getting the HTML elements for the web scraping of lemmas and its frequencies.
+            # -- Getting the HTML elements for the web scraping of lemmas and its frequencies. -- #
 
             md_content_element = browser.find_element(By.CSS_SELECTOR, "md-content.layout-padding._md")
 
@@ -158,42 +159,31 @@ def get_lemma(browser, file, line, token, logger, logs):
 
                 stable_page = True
 
-            else:  # Here we have a "Frequency" element, lemmas and related frequencies.
+            else:  # Here we have the "Frequency" html element, its lemmas and related frequencies.
 
                 # print(f'The length of ul elements: {len(ul_elements)}    token: {token}')
 
-                if len(ul_elements) == NUM_UL_ELEMENTS:  # The second of the ul_elements contains the lemmas and its frequencies.
+                if len(ul_elements) == NUM_UL_ELEMENTS:
 
-                    # Getting the best lemma for a valid token
-
+                    # The second of the ul_elements contains the lemmas and its frequencies.
                     frequency_elements = ul_elements[2].find_element(By.TAG_NAME, "li").find_elements(By.TAG_NAME, "p")
 
+                    # Getting the best lemma for a token
                     best_lemma = get_best_lemma(frequency_elements)
-
-                    """
-                    for element in frequency_elements:
-
-                        print(element.text)
-                    """
 
                     stable_page = True
 
-    except NoSuchElementException as e:
+    except NoSuchElementException:
 
         lemma = nan
 
-        if ul_elements:
+        print(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        print(f'URL: {url}' + "\n")
 
-            print(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
-            print(f'URL: {url}' + "\n")
+        logs.write(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'URL: {url}' + "\n")
 
-            logs.write(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
-            logs.write(f'URL: {url}' + "\n")
-            logs.write(f'Exception occurred while code Execution:  + {str(e)}' + "\n")
-
-            logger.exception("Exception occurred while code Execution: " + str(e))
-
-    except TimeoutException as e:
+    except TimeoutException:
 
         lemma = nan
 
@@ -202,11 +192,8 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         logs.write(f'Getting URL error: An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
-        logs.write(f'Exception occurred while code Execution:  + {str(e)}' + "\n")
 
-        logger.exception("Exception occurred while code Execution: " + str(e))
-
-    except Exception as e:
+    except Exception:
 
         lemma = nan
 
@@ -215,9 +202,6 @@ def get_lemma(browser, file, line, token, logger, logs):
 
         logs.write(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
-        logs.write(f'Exception occurred while code Execution:  + {str(e)}' + "\n")
-
-        logger.exception("Exception occurred while code Execution: " + str(e))
 
     else:
 
