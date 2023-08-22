@@ -129,6 +129,9 @@ def get_lemma(browser, file, line, token, logger, logs):
 
     browser.get(url)  # navigate to URL
 
+    # The number of ul elements to wait for before getting lemmas and its frequencies.
+    NUM_UL_ELEMENTS = 3
+
     wait = WebDriverWait(browser, 10, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
 
     try:
@@ -159,7 +162,7 @@ def get_lemma(browser, file, line, token, logger, logs):
 
                 # print(f'The length of ul elements: {len(ul_elements)}    token: {token}')
 
-                if len(ul_elements) == 3:  # The second of the ul_elements contains the lemmas and its frequencies.
+                if len(ul_elements) == NUM_UL_ELEMENTS:  # The second of the ul_elements contains the lemmas and its frequencies.
 
                     # Getting the best lemma for a valid token
 
