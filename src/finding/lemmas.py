@@ -138,7 +138,7 @@ def get_lemma(browser, file, line, token, logs):
     TRACKING_WAITS = 0
 
     # For those unexpected or unknown html pages. This ensure we will know special tokens to debug.
-    WAITS = 10
+    WAITS = 100  # Number or waiting steps (not seconds)
 
     try:
 
@@ -266,7 +266,7 @@ def check_token(token):
 
 if __name__ == '__main__':
 
-    print(f'Lemmas_finder: A python script to scrap lemmas from logeion.uchicago.edu/morpho/' + "\n")
+    print("\n" + f'Lemmas_finder: A python script to scrap lemmas from logeion.uchicago.edu/morpho/' + "\n")
 
     install_browser()
 
