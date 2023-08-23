@@ -137,6 +137,9 @@ def get_lemma(browser, file, line, token, logs):
     # For those unexpected or unknown html pages. This ensure we will know special tokens to debug.
     TRACKING_WAITS = 0
 
+    # For those unexpected or unknown html pages. This ensure we will know special tokens to debug.
+    WAITS = 10
+
     try:
 
         stable_page = False
@@ -161,7 +164,7 @@ def get_lemma(browser, file, line, token, logs):
 
                 stable_page = True
 
-            else:  # Here we have the "Frequency" html element, its lemmas and related frequencies.
+            else:  # Here we have UL html elements to scrap.
 
                 # print(f'The length of ul elements: {len(ul_elements)}    token: {token}')
 
@@ -175,19 +178,23 @@ def get_lemma(browser, file, line, token, logs):
 
                     stable_page = True
 
-                elif TRACKING_WAITS == 10:
+                else:
 
-                    TRACKING_WAITS += 1
+                    if TRACKING_WAITS == WAITS:
 
-                    print(f'Special URL: Not enough UL html elements in File: {file} at line: {line}, token {token}' + "\n")
-                    print(f'URL: {url}' + "\n")
+                        print(f'Special URL: Not enough UL html elements in File: {file} at line: {line}, token {token}' + "\n")
+                        print(f'URL: {url}' + "\n")
 
-                    logs.write(f'Special URL: Not enough UL html elements in File:: {file} at line: {line}, token {token}' + "\n")
-                    logs.write(f'URL: {url}' + "\n")
+                        logs.write(f'Special URL: Not enough UL html elements in File:: {file} at line: {line}, token {token}' + "\n")
+                        logs.write(f'URL: {url}' + "\n")
 
-                    best_lemma = nan
+                        best_lemma = nan
 
-                    stable_page = True
+                        stable_page = True
+
+                    else:
+
+                        TRACKING_WAITS += 1
 
     except NoSuchElementException:
 
@@ -259,6 +266,8 @@ def check_token(token):
 
 if __name__ == '__main__':
 
+    print(f'Lemmas_finder: A python script to scrap lemmas from logeion.uchicago.edu/morpho/' + "\n")
+
     install_browser()
 
     folders = ['processed', 'warnings', 'logs']
@@ -324,7 +333,7 @@ if __name__ == '__main__':
 
                 lemma = get_lemma(browser, file, x, token, logs)
 
-                # print(f'Token {token}       lemma : {lemma}')
+                print(f'Token {token}       lemma : {lemma}')
 
                 new_lemmas_in_file.append([x, token, lemma])
 
