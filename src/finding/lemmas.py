@@ -138,7 +138,7 @@ def get_lemma(browser, file, line, token, logs):
     TRACKING_WAITS = 0
 
     # For those unexpected or unknown html pages. This ensure we will know special tokens to debug.
-    WAITS = 100  # Number or waiting steps (not seconds)
+    WAITS = 1000  # Number or waiting steps (not seconds)
 
     try:
 
@@ -200,10 +200,10 @@ def get_lemma(browser, file, line, token, logs):
 
         lemma = nan
 
-        print(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        print(f'Getting not Frequencies error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
         print(f'URL: {url}' + "\n")
 
-        logs.write(f'Getting URL error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'Getting not Frequencies error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
 
     except TimeoutException:
