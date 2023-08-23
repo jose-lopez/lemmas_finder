@@ -21,7 +21,7 @@ https://logeion.uchicago.edu/morpho/
 
 Created on 21 jul. 2023
 
-@authors: jose-lopez, Jacobo Myerston
+@authors: Jose Lopez, Jacobo Myerston
 
 @email: josesmooth@gmail.com
 
