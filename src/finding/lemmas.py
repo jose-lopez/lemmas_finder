@@ -134,6 +134,9 @@ def get_lemma(browser, file, line, token, logs):
     # Setting how the waiting process must be done
     wait = WebDriverWait(browser, 10, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
 
+    # For those unexpected or unknown html pages. This ensure we will know special tokens to debug.
+    TRACKING_WAITS = 0
+
     try:
 
         stable_page = False
@@ -169,6 +172,20 @@ def get_lemma(browser, file, line, token, logs):
 
                     # Getting the best lemma for a token
                     best_lemma = get_best_lemma(frequency_elements)
+
+                    stable_page = True
+
+                elif TRACKING_WAITS == 10:
+
+                    TRACKING_WAITS += 1
+
+                    print(f'Special URL: Not enough UL html elements in File: {file} at line: {line}, token {token}' + "\n")
+                    print(f'URL: {url}' + "\n")
+
+                    logs.write(f'Special URL: Not enough UL html elements in File:: {file} at line: {line}, token {token}' + "\n")
+                    logs.write(f'URL: {url}' + "\n")
+
+                    best_lemma = nan
 
                     stable_page = True
 
