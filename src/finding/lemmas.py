@@ -16,10 +16,16 @@ from numpy.core.numeric import nan
 import re
 
 '''
+Lemmas_finder: A python script to scrap lemmas from:
+https://logeion.uchicago.edu/morpho/
+
 Created on 21 jul. 2023
 
-@author: jose-lopez
+@authors: jose-lopez, Jacobo Myerston
 
+@email: josesmooth@gmail.com
+
+@email: jmyerston@gmail.com
 '''
 
 
@@ -132,7 +138,7 @@ def get_lemma(browser, file, line, token, logs):
     NUM_UL_ELEMENTS = 3
 
     # Setting how the waiting process must be done
-    wait = WebDriverWait(browser, 10, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
+    wait = WebDriverWait(browser, 20, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
 
     # For those unexpected or unknown html pages. This ensure we will know special tokens to debug.
     TRACKING_WAITS = 0
