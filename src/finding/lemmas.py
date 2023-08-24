@@ -65,7 +65,7 @@ def get_browser():
 
     options.add_argument('--disable-dev-shm-usage')
 
-    options.add_argument("--headless=new")
+    # options.add_argument("--headless=new")
 
     options.add_argument("--disable-web-security")
 
@@ -105,17 +105,22 @@ def get_best_lemma(frequency_elements: list) -> str:
 
     for element in frequency_elements:
 
-        lemma = re.search("[\u1F00-\u1FFF\u0370-\u03FF\ʼ]+", element.text)
+        # Some frequency elements talks about unranked lemmas, those must be kept out.
+        unranked = re.search("unranked", element.text)
 
-        frequency = re.search("[0-9]+", element.text)
+        if not unranked:  # If the element is ranked,then it is added to the list of possible lemmas.
 
-        if lemma and frequency:
+            lemma = re.search("[\u1F00-\u1FFF\u0370-\u03FF\ʼ]+", element.text)
 
-            possible_lemmas[lemma.group()] = int(frequency.group())
+            frequency = re.search("[0-9]+", element.text)
+
+            if lemma and frequency:
+
+                possible_lemmas[lemma.group()] = int(frequency.group())
 
     if possible_lemmas:
 
-        sorted_lemmas = sorted(possible_lemmas.items(), key=lambda x: x[1], reverse=True)
+        sorted_lemmas = sorted(possible_lemmas.items(), key=lambda x: x[1], reverse=False)
 
         (best_lemma, _) = sorted_lemmas[0]
 
@@ -152,7 +157,7 @@ def get_lemma(browser, file, line, token, logs):
 
         while not stable_page:
 
-            # Waiting until the Frequency field has some 'p' html elements
+            # Waiting until the Frequency field has some 'p' html elements.
 
             wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "p.ng-binding.ng-scope")))
 
