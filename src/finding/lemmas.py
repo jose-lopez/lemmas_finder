@@ -47,7 +47,7 @@ def install_browser():
         try:
 
             print(os.popen('wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb').read())
-            print(os.popen('apt install ./google-chrome-stable_current_amd64.deb').read())
+            print(os.popen('sudo apt install ./google-chrome-stable_current_amd64.deb').read())
 
         except Exception as e:
 
@@ -65,7 +65,7 @@ def get_browser():
 
     options.add_argument('--disable-dev-shm-usage')
 
-    # options.add_argument("--headless=new")
+    options.add_argument("--headless=new")
 
     options.add_argument("--disable-web-security")
 
@@ -344,7 +344,7 @@ if __name__ == '__main__':
 
                 lemma = get_lemma(browser, file, x, token, logs)
 
-                print(f'Token {token}       lemma : {lemma}')
+                # print(f'Token {token}       lemma : {lemma}')
 
                 new_lemmas_in_file.append([x, token, lemma])
 
