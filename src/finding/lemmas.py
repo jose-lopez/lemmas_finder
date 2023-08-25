@@ -47,7 +47,7 @@ def install_browser():
         try:
 
             print(os.popen('wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb').read())
-            print(os.popen('sudo apt install ./google-chrome-stable_current_amd64.deb').read())
+            print(os.popen('apt install ./google-chrome-stable_current_amd64.deb').read())
 
         except Exception as e:
 
