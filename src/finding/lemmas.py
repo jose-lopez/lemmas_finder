@@ -29,32 +29,26 @@ Created on 21 jul. 2023
 '''
 
 
-def install_browser():
+def check_browser():
 
     print(f'Checking Google Chrome installation....' + "\n")
 
-    with os.popen("google-chrome --version") as f:
-        browser = f.readlines()
+    with os.popen("google-chrome --version") as f1:
+        browser = f1.readlines()
 
     if len(browser):
 
-        print(f'Google Chrome version: {browser[0]}' + "\n")
+        print(f'Google Chrome is available: version: {browser[0]}' + "\n")
 
     else:
 
-        print(f'... Installing Google Chrome' + "\n")
+        print(f'Google Chrome is not available. Please install it as follows.' + "\n")
 
-        try:
+        print(f'wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb' + "\n")
 
-            print(os.popen('wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb').read())
-            print(os.popen('apt install ./google-chrome-stable_current_amd64.deb').read())
+        print(f'sudo apt install ./google-chrome-stable_current_amd64.deb' + "\n")
 
-        except Exception as e:
-
-            print("An exception was raised whilst the installation of google-chrome was going on.")
-            print(e)
-
-            exit(1)
+        exit(1)
 
 
 def get_browser():
@@ -91,8 +85,36 @@ def get_browser():
 
     except Exception as e:
 
-        print("An exception was raised whilst Selenium's webdriver was trying to open google-chrome.")
-        print(e)
+        MSG = str(e)
+
+        if MSG.startswith("No such driver version"):
+
+            chrome_deb_url = "https://drive.google.com/file/d/1rw-T5jVOWuzhbbAmspLfzntt0xnJIuFe/view?usp=drive_link"
+
+            print(f'Please, downgrade your chrome\'s version in order to find a Selenium\'s webdriver.' + "\n")
+
+            print(f'This is a guide to follow: ' + "\n")
+
+            print(f'Get an older and safe .deb chrome installer from here:' + "\n")
+
+            print(f'{chrome_deb_url}' + "\n")
+
+            print(f'Uninstall your current chrome\'s version this way:' + "\n")
+
+            print(f'sudo apt-get purge --auto-remove google-chrome-stable' + "\n")
+
+            print(f'For the installation you\'ll need sudo proviligies.' + "\n")
+
+            print(f'sudo apt install ./google-chrome-stable_current_amd64.deb' + "\n")
+
+            print(f'Finally, disable the automatic updates for chrome:' + "\n")
+
+            print(f'sudo apt-mark hold google-chrome-stable' + "\n")
+
+        else:
+
+            print("An exception was raised whilst Selenium's webdriver was trying to open google-chrome." + "\n")
+            print(e)
 
         exit(1)
 
@@ -105,28 +127,30 @@ def get_best_lemma(frequency_elements: list) -> str:
 
     for element in frequency_elements:
 
-        # Some frequency elements talks about unranked lemmas, those must be kept out.
+        lemma = re.search("[\u1F00-\u1FFF\u0370-\u03FF\ʼ]+", element.text)
+
+        frequency = re.search("[0-9]+", element.text)
+
+        # Some frequency elements talks about unranked lemmas.
         unranked = re.search("unranked", element.text)
 
-        if not unranked:  # If the element is ranked,then it is added to the list of possible lemmas.
-
-            lemma = re.search("[\u1F00-\u1FFF\u0370-\u03FF\ʼ]+", element.text)
-
-            frequency = re.search("[0-9]+", element.text)
+        if not unranked:  # If the lemma in the element is ranked,then it is added to the list of possible lemmas.
 
             if lemma and frequency:
 
                 possible_lemmas[lemma.group()] = int(frequency.group())
+
+        else:  # The lemma in the element is unranked,
+
+            if len(frequency_elements) == 1:  # .. and the only one available, the lemma is useful.
+
+                best_lemma = lemma.group()
 
     if possible_lemmas:
 
         sorted_lemmas = sorted(possible_lemmas.items(), key=lambda x: x[1], reverse=False)
 
         (best_lemma, _) = sorted_lemmas[0]
-
-    else:
-
-        best_lemma = nan
 
     return best_lemma
 
@@ -279,7 +303,7 @@ if __name__ == '__main__':
 
     print("\n" + f'Lemmas_finder: A python script to scrap lemmas from logeion.uchicago.edu/morpho/' + "\n")
 
-    install_browser()
+    check_browser()
 
     folders = ['processed', 'warnings', 'logs']
 
@@ -344,7 +368,7 @@ if __name__ == '__main__':
 
                 lemma = get_lemma(browser, file, x, token, logs)
 
-                # print(f'Token {token}       lemma : {lemma}')
+                print(f'Token {token}       lemma : {lemma}')
 
                 new_lemmas_in_file.append([x, token, lemma])
 
