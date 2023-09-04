@@ -18,7 +18,7 @@ from _io import TextIOWrapper
 from tqdm import tqdm
 
 '''
-Lemmas_finder: A python script to scrap lemmas from:
+Lemmas_scraper: A python script to scrap lemmas from:
 https://logeion.uchicago.edu/morpho/
 
 Created on 21 jul. 2023
@@ -28,6 +28,10 @@ Created on 21 jul. 2023
 @email: josesmooth@gmail.com
 
 @email: jmyerston@gmail.com
+
+Requierements:
+webdriver-manager, selenium, pandas, tqdm
+
 '''
 
 
