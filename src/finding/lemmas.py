@@ -14,6 +14,8 @@ import os
 import pandas as pd
 from numpy.core.numeric import nan
 import re
+from _io import TextIOWrapper
+from tqdm import tqdm
 
 '''
 Lemmas_finder: A python script to scrap lemmas from:
@@ -30,6 +32,9 @@ Created on 21 jul. 2023
 
 
 def check_browser():
+    """
+    This is a function to check if Google Chrome is available.
+    """
 
     print(f'Checking Google Chrome installation....' + "\n")
 
@@ -38,7 +43,10 @@ def check_browser():
 
     if len(browser):
 
-        print(f'Google Chrome is available: version: {browser[0]}' + "\n")
+        version = browser[0].split(" ")[-2]
+
+        print("Google Chrome is available: ")
+        print(f'Version: {version}' + "\n")
 
     else:
 
@@ -51,7 +59,13 @@ def check_browser():
         exit(1)
 
 
-def get_browser():
+def get_browser() -> webdriver:
+    """
+    This method get the browser and the related Seleniums's driver,
+    in order to scrap the lemmas. The method also offers a guide to
+    follow in case the version of your current browser doesn't have a
+    a compatible Seleniums's driver.
+    """
 
     options = webdriver.ChromeOptions()
 
@@ -114,14 +128,18 @@ def get_browser():
         else:
 
             print("An exception was raised whilst Selenium's webdriver was trying to open google-chrome." + "\n")
-            print(e)
+            print(str(e))
 
         exit(1)
 
     return browser
 
 
-def get_best_lemma(frequency_elements: list) -> str:
+def get_best_lemma(frequency_elements: list) -> str or nan:
+    """
+    Getting the best lemma for a token from the list of lemmas
+    available in the field "Frequency", scraped from the tokens's URL.
+    """
 
     possible_lemmas = {}
 
@@ -140,9 +158,10 @@ def get_best_lemma(frequency_elements: list) -> str:
 
                 possible_lemmas[lemma.group()] = int(frequency.group())
 
-        else:  # The lemma in the element is unranked,
+        else:  # The lemma in the element is unranked,...
 
-            if len(frequency_elements) == 1:  # .. and the only one available, the lemma is useful.
+            if len(frequency_elements) == 1:    # .. and the only one available,
+                                                #  therefore the lemma is the best for the token.
 
                 best_lemma = lemma.group()
 
@@ -155,13 +174,18 @@ def get_best_lemma(frequency_elements: list) -> str:
     return best_lemma
 
 
-def get_lemma(browser, file, line, token, logs):
+def get_lemma(browser: webdriver, file: str, line: int, token: str, logs: TextIOWrapper) -> str or nan:
+
+    """
+    In this method, given a token, a possible lemma is searched
+    (scrapped) for it from the url https://logeion.uchicago.edu/morpho/.
+    """
 
     url_base = "https://logeion.uchicago.edu/morpho/"
 
     url = url_base + quote(token)
 
-    browser.get(url)  # navigate to URL
+    browser.get(url)  # Here we get the web page to scrap the best lemma for a token.
 
     # The number of "UL" html elements to wait for before getting lemmas and its frequencies.
     NUM_UL_ELEMENTS = 3
@@ -235,18 +259,12 @@ def get_lemma(browser, file, line, token, logs):
 
         lemma = nan
 
-        print(f'Getting not Frequencies error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
-        print(f'URL: {url}' + "\n")
-
         logs.write(f'Getting not Frequencies error: An exception of type NoSuchElementException in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
 
     except TimeoutException:
 
         lemma = nan
-
-        print(f'Getting URL error: An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
-        print(f'URL: {url}' + "\n")
 
         logs.write(f'Getting URL error: An exception of type TimeoutException in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
@@ -255,10 +273,7 @@ def get_lemma(browser, file, line, token, logs):
 
         lemma = nan
 
-        print(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
-        print(f'URL: {url}' + "\n")
-
-        logs.write(f'Getting URL error: A non anticipated exception in File: {file} at line: {line}, token {token}' + "\n")
+        logs.write(f'Getting URL error: An unexpected exception in File: {file} at line: {line}, token {token}' + "\n")
         logs.write(f'URL: {url}' + "\n")
 
     else:
@@ -286,7 +301,10 @@ def get_lemma(browser, file, line, token, logs):
         return lemma
 
 
-def check_token(token):
+def check_token(token: str) -> bool:
+    """
+    A method to warn about possible errors in a token.
+    """
 
     warning = False
 
@@ -301,10 +319,29 @@ def check_token(token):
 
 if __name__ == '__main__':
 
+    """
+    The main method processes the *.csv files located in the text/corpus folder,
+    producing updated versions of them, stored in a folder named
+    "processed". Files with warnings and logs are also generated for
+    each one of the .csv files.
+
+    A file of the type "warnings" informs about possible syntactical errors
+    in tokens in the input files.
+
+    A "log" type file, on the other hand, reports problems found when trying
+    to access a URL, for a given token.
+
+    The text/processed folder also includes files listing all the new lemmas
+    found for each token in each one of the input files.
+
+    """
+
     print("\n" + f'Lemmas_finder: A python script to scrap lemmas from logeion.uchicago.edu/morpho/' + "\n")
 
+    # Checking if Google Chrome is available.
     check_browser()
 
+    # Setting the main folders
     folders = ['processed', 'warnings', 'logs']
 
     root = "./text/"
@@ -315,9 +352,13 @@ if __name__ == '__main__':
         if not path.exists(_path):
             os.mkdir(_path)
 
-    processed_files = 0
-
+    # Getting an instance of the browser in order to consult urls,
+    # scrap the related html pages, and get (scrap) lemmas from them.
     browser = get_browser()
+
+    # ---- Processing the .csv files to add them the token's lemmas ---#
+
+    processed_files = 0
 
     files = [str(x) for x in Path(corpus).glob("**/*.csv")]
 
@@ -325,9 +366,9 @@ if __name__ == '__main__':
 
     warnings_in_file = []
 
-    for file in files:
+    for f in tqdm(range(files_to_process), desc='Files on process'):
 
-        file_name = "/" + file.split("/")[-1]
+        file_name = "/" + files[f].split("/")[-1]
 
         file_root_name = file_name.split(".")[0]
 
@@ -348,15 +389,17 @@ if __name__ == '__main__':
 
         new_lemmas_in_file = []
 
-        input_df = pd.read_csv(file)
+        input_df = pd.read_csv(files[f])
 
-        print(f'Getting lemmas for {file} file: {processed_files} | {files_to_process}' + "\n")
+        # print(f'Getting lemmas for {file} file: {processed_files} | {files_to_process}' + "\n")
 
-        for x in input_df.index:
+        # A possible lemma is searched for each one of the tokens without one.
 
-            token = input_df.loc[x, "token"]
+        for x in tqdm(range(input_df.index.stop), desc=file_name):
 
-            lemma = input_df.loc[x, "lemma"]
+            token = input_df.loc[x].at["token"]
+
+            lemma = input_df.loc[x].at["lemma"]
 
             warning = check_token(token)
 
@@ -366,9 +409,9 @@ if __name__ == '__main__':
 
             if lemma is nan:
 
-                lemma = get_lemma(browser, file, x, token, logs)
+                lemma = get_lemma(browser, files[f], x, token, logs)
 
-                print(f'Token {token}       lemma : {lemma}')
+                # print(f'Token {token}       lemma : {lemma}')
 
                 new_lemmas_in_file.append([x, token, lemma])
 
@@ -380,11 +423,13 @@ if __name__ == '__main__':
 
         if len(warnings_in_file) != 0:
 
-            print(f'Warnings found for {file} file. A report in {warnings_file}')
+            # print(f'Warnings found for {file} file. A report in {warnings_file}')
 
             warnings_df = pd.DataFrame(warnings_in_file, columns=['line', 'token'])
 
             warnings_df.to_csv(warnings_file)
+
+        # The new lemmas found are reported.
 
         new_lemmas_in_file_df = pd.DataFrame(new_lemmas_in_file, columns=['line', 'token', 'lemma'])
 
