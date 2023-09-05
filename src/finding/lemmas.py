@@ -18,6 +18,7 @@ from _io import TextIOWrapper
 from tqdm import tqdm
 
 '''
+
 Lemmas_scraper: A python script to scrap lemmas from:
 https://logeion.uchicago.edu/morpho/
 
@@ -34,8 +35,8 @@ webdriver-manager, selenium, pandas, tqdm
 
 '''
 
-
 def check_browser():
+
     """
     This is a function to check if Google Chrome is available.
     """
@@ -64,8 +65,9 @@ def check_browser():
 
 
 def get_browser() -> webdriver:
+
     """
-    This method get the browser and the related Seleniums's driver,
+    This method gets the browser and the related Seleniums's driver,
     in order to scrap the lemmas. The method also offers a guide to
     follow in case the version of your current browser doesn't have a
     a compatible Seleniums's driver.
@@ -140,6 +142,7 @@ def get_browser() -> webdriver:
 
 
 def get_best_lemma(frequency_elements: list) -> str or nan:
+
     """
     Getting the best lemma for a token from the list of lemmas
     available in the field "Frequency", scraped from the tokens's URL.
@@ -245,9 +248,6 @@ def get_lemma(browser: webdriver, file: str, line: int, token: str, logs: TextIO
 
                     if TRACKING_WAITS == WAITS:
 
-                        print(f'Special URL: Not enough UL html elements in File: {file} at line: {line}, token {token}' + "\n")
-                        print(f'URL: {url}' + "\n")
-
                         logs.write(f'Special URL: Not enough UL html elements in File:: {file} at line: {line}, token {token}' + "\n")
                         logs.write(f'URL: {url}' + "\n")
 
@@ -306,6 +306,7 @@ def get_lemma(browser: webdriver, file: str, line: int, token: str, logs: TextIO
 
 
 def check_token(token: str) -> bool:
+
     """
     A method to warn about possible errors in a token.
     """
@@ -340,7 +341,7 @@ if __name__ == '__main__':
 
     """
 
-    print("\n" + f'Lemmas_finder: A python script to scrap lemmas from logeion.uchicago.edu/morpho/' + "\n")
+    print("\n" + f'Lemmas_scraper: A python script to scrap lemmas from logeion.uchicago.edu/morpho/' + "\n")
 
     # Checking if Google Chrome is available.
     check_browser()
@@ -395,8 +396,6 @@ if __name__ == '__main__':
 
         input_df = pd.read_csv(files[f])
 
-        # print(f'Getting lemmas for {file} file: {processed_files} | {files_to_process}' + "\n")
-
         # A possible lemma is searched for each one of the tokens without one.
 
         for x in tqdm(range(input_df.index.stop), desc=file_name):
@@ -426,8 +425,6 @@ if __name__ == '__main__':
         # Building the warnings' file, if there are any, for the file on process.
 
         if len(warnings_in_file) != 0:
-
-            # print(f'Warnings found for {file} file. A report in {warnings_file}')
 
             warnings_df = pd.DataFrame(warnings_in_file, columns=['line', 'token'])
 
