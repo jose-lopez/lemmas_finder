@@ -35,6 +35,7 @@ webdriver-manager, selenium, pandas, tqdm
 
 '''
 
+
 def check_browser():
 
     """
@@ -198,13 +199,13 @@ def get_lemma(browser: webdriver, file: str, line: int, token: str, logs: TextIO
     NUM_UL_ELEMENTS = 3
 
     # Setting how the waiting process must be done
-    wait = WebDriverWait(browser, 20, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
+    wait = WebDriverWait(browser, 10, poll_frequency=1, ignored_exceptions=[TimeoutException, NoSuchElementException])
 
     # For those unexpected or unknown html pages. This ensure we will know special tokens to debug.
     TRACKING_WAITS = 0
 
     # For those unexpected or unknown html pages. This ensure we will know special tokens to debug.
-    WAITS = 1000  # Number or waiting steps (not seconds)
+    WAITS = 100  # Number or waiting steps (not seconds)
 
     try:
 
@@ -373,7 +374,7 @@ if __name__ == '__main__':
 
     for f in tqdm(range(files_to_process), desc='Files on process'):
 
-        file_name = "/" + files[f].split("/")[-1]
+        file_name = files[f].split("/")[-1]
 
         file_root_name = file_name.split(".")[0]
 
