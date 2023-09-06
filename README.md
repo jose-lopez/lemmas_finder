@@ -8,8 +8,7 @@ each one of the *.csv files.
 
 For instance, if you have some lines in one of the .csv files, like these:
 
-,n,token,lemma,pos
-
+,n,token,lemma,pos                                                                                          
 8,4,ἀρθέντʼ,?,a-s---ma-
 
 then, the goal of the code is to scrap the best lemma available from those 
