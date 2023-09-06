@@ -8,16 +8,8 @@ each one of the *.csv files.
 
 For instance, if you have some lines in one of the .csv files, like these:
 
-  n token lemma pos
-0	1	Ζεὺς	Ζεύς	n-s---mn-
-1	2	μὲν	μέν	g--------
-2	3	ἀφίκτωρ	ἀφίκτωρ	n-s---mn-
-3	4	ἐπίδοι	ἐφοράω	v3saoa---
-4	5	προφρόνως	πρόφρων	d--------
-5	1	στόλον	στόλος	n-s---ma-
-6	2	ἡμέτερον	ἡμέτερος	a-s---ma-
-7	3	νάιον	νήϊος	a-s---ma-
-8	4	ἀρθέντʼ		a-s---ma-
+,n,token,lemma,pos
+8,4,ἀρθέντʼ,?,a-s---ma-
 
 then, the goal of the code is to scrap the best lemma available from those 
 tokens lacking one. The lemmas are scraped from web site:
