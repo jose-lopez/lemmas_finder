@@ -6,7 +6,7 @@ producing updated versions of them, stored in a folder named
 "processed". Files with warnings and logs are also generated for
 each one of the *.csv files.
 
-For instance, if you have some lines in one of the .csv files, like these:
+For instance, if you have a line in one of the .csv files, like this:
 
 ,n,token,lemma,pos                                                                                          
 8,4,ἀρθέντʼ,?,a-s---ma-
