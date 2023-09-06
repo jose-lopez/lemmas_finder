@@ -376,7 +376,7 @@ if __name__ == '__main__':
 
         file_name = files[f].split("/")[-1]
 
-        file_root_name = file_name.split(".")[0]
+        file_root_name = "/" + file_name.split(".")[0]
 
         processed_files += 1
 
