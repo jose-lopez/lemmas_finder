@@ -12,7 +12,7 @@ For instance, if you have a line in one of the .csv files, like this:
 8,4,ἀρθέντʼ,?,a-s---ma-
 
 then, the goal of the code is to scrap the best lemma available from those 
-tokens lacking one. The lemmas are scraped from web site:
+tokens lacking one. The lemmas are scraped from the web site:
 https://logeion.uchicago.edu/morpho/.
 
 A file of the type "warnings" informs about possible syntactical errors
