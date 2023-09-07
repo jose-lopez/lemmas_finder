@@ -9,7 +9,7 @@ each one of the *.csv files.
 For instance, if you have a line in one of the .csv files, like this:
 
 ,n,token,lemma,pos                                                                                          
-8,4,ἀρθέντʼ,?,a-s---ma-
+8,4,ἀρθέντʼ,,a-s---ma-
 
 then, the goal of the code is to scrap the best lemma available from those 
 tokens lacking one. The lemmas are scraped from the web site:
