@@ -68,10 +68,10 @@ def check_browser():
 def get_browser() -> webdriver:
 
     """
-    This method gets the browser and the related Seleniums's driver,
+    This method gets the browser and the related selenium driver,
     in order to scrap the lemmas. The method also offers a guide to
     follow in case the version of your current browser doesn't have a
-    a compatible Seleniums's driver.
+    a compatible selenium driver.
     """
 
     options = webdriver.ChromeOptions()
@@ -112,7 +112,7 @@ def get_browser() -> webdriver:
 
             chrome_deb_url = "https://drive.google.com/file/d/1rw-T5jVOWuzhbbAmspLfzntt0xnJIuFe/view?usp=drive_link"
 
-            print(f'Please, downgrade your chrome\'s version in order to find a Selenium\'s webdriver.' + "\n")
+            print(f'Please, downgrade your chrome\'s version in order to find a selenium webdriver.' + "\n")
 
             print(f'This is a guide to follow: ' + "\n")
 
@@ -134,7 +134,7 @@ def get_browser() -> webdriver:
 
         else:
 
-            print("An exception was raised whilst Selenium's webdriver was trying to open google-chrome." + "\n")
+            print("An exception was raised whilst selenium webdriver was trying to open google-chrome." + "\n")
             print(str(e))
 
         exit(1)
